@@ -1,0 +1,425 @@
+// Modelo de dados (secção 16). Os nomes dos campos são iguais aos do domínio
+// (lib/domain/types.ts) para o repositório genérico (lib/data/prisma-repo.ts).
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum Role {
+  COLABORADOR
+  GESTOR_LAB
+  GESTOR_INCUBADORA
+  COMISSAO_EXECUTIVA
+  EXTERNO
+}
+
+enum AuthProvider {
+  MICROSOFT
+  EMAIL
+}
+
+enum UserStatus {
+  ACTIVO
+  DESACTIVADO
+}
+
+enum IdeaType {
+  EXTERNA
+  MELHORIA
+  NEGOCIO_COLABORADOR
+}
+
+enum IdeaOrigin {
+  EXTERNA
+  ANONIMA_EXTERNA
+  COLABORADOR
+  ANONIMA_COLABORADOR
+}
+
+enum Area {
+  LAB
+  INCUBADORA
+}
+
+enum IdeaStatus {
+  RECEBIDA
+  EM_ANALISE
+  INFO_PEDIDA
+  EM_AVALIACAO
+  DECISAO
+  RETIRADA
+  DUPLICADA
+}
+
+enum Decision {
+  SELECCIONADA
+  LISTA_ESPERA
+  ENCAMINHADA
+  NAO_SELECCIONADA
+}
+
+enum Visibility {
+  PUBLICO
+  INTERNO
+  RESTRITO
+}
+
+enum ContentStatus {
+  RASCUNHO
+  PUBLICADO
+  ARQUIVADO
+}
+
+/// Utilizador. O visitante não é guardado.
+model User {
+  id              String       @id
+  name            String
+  email           String       @unique
+  role            Role
+  authProvider    AuthProvider
+  department      String?
+  photoUrl        String?
+  emailVerifiedAt DateTime?
+  status          UserStatus   @default(ACTIVO)
+  createdAt       DateTime     @default(now())
+  lastSeenAt      DateTime?
+  /// Perfil externo (tipo, organização, site, país, cidade, ano, pessoas, fase…)
+  external        Json?
+  interests       String[]
+  skills          String[]
+  badges          String[]
+  notifyPrefs     Json?
+  passwordHash    String?
+  failedLogins    Int          @default(0)
+  lockedUntil     DateTime?
+
+  @@index([role])
+}
+
+model Idea {
+  id                String      @id
+  number            String      @unique
+  type              IdeaType
+  origin            IdeaOrigin
+  /// Nunca preenchido em ideias anónimas (ver AnonAuthorship).
+  authorId          String?
+  title             String
+  summary           String
+  answers           Json
+  area              Area
+  status            IdeaStatus
+  decision          Decision?
+  decisionReason    String?
+  nextStep          String?
+  assigneeId        String?
+  challengeId       String?
+  duplicateOfId     String?
+  projectId         String?
+  termsVersion      String?
+  theme             String?
+  affectedArea      String?
+  workLine          String?
+  similarConfirmed  String[]
+  managerScore      Int?
+  deleteRequestedAt DateTime?
+  createdAt         DateTime    @default(now())
+  updatedAt         DateTime    @updatedAt
+  firstResponseAt   DateTime?
+
+  @@index([area, status])
+  @@index([authorId])
+}
+
+/// Ligação cifrada entre a ideia anónima e a pessoa. Só o serviço de anonimato a lê.
+model AnonAuthorship {
+  id             String    @id
+  ideaId         String    @unique
+  userRefEnc     String?
+  userLookup     String?
+  codeHash       String?   @unique
+  notifyEmailEnc String?
+  revealedAt     DateTime?
+
+  @@index([userLookup])
+}
+
+model StatusChange {
+  id       String   @id
+  entity   String
+  entityId String
+  from     String?
+  to       String
+  byId     String?
+  note     String?
+  at       DateTime @default(now())
+
+  @@index([entity, entityId])
+}
+
+model AiAnalysis {
+  id              String   @id
+  ideaId          String
+  criteriaSetId   String
+  criteriaVersion Int
+  status          String
+  scores          Json
+  total           Int
+  routing         String?
+  routingReason   String?
+  classification  Json?
+  similar         Json
+  risks           Json
+  completeness    Json
+  summary         String
+  feedbackDraft   String
+  error           String?
+  provider        String?
+  createdAt       DateTime @default(now())
+
+  @@index([ideaId])
+}
+
+model CriteriaSet {
+  id          String   @id
+  ideaKind    String
+  version     Int
+  criteria    Json
+  context     String
+  active      Boolean
+  createdAt   DateTime @default(now())
+  createdById String?
+
+  @@unique([ideaKind, version])
+}
+
+model ManagerAssessment {
+  id         String   @id
+  ideaId     String
+  managerId  String
+  scores     Json
+  finalScore Int
+  aiScore    Int?
+  notes      String?
+  at         DateTime @default(now())
+}
+
+model Message {
+  id            String    @id
+  ideaId        String
+  authorId      String?
+  fromTeam      Boolean
+  kind          String
+  text          String
+  attachments   Json
+  validatedById String?
+  at            DateTime  @default(now())
+  readAt        DateTime?
+
+  @@index([ideaId])
+}
+
+model Project {
+  id                      String     @id
+  slug                    String     @unique
+  name                    String
+  area                    Area
+  track                   String?
+  workLine                String?
+  originIdeaId            String?
+  visibility              Visibility @default(INTERNO)
+  featured                Boolean    @default(false)
+  cover                   String?
+  shortDescription        String
+  problem                 String
+  hypothesis              String?
+  stage                   String
+  sponsorId               String?
+  mainMetric              String?
+  killMetric              String?
+  architectureValidatedAt DateTime?
+  securityKitPhase        Int        @default(0)
+  partnerIds              String[]
+  links                   Json
+  exit                    Json?
+  theme                   String?
+  publicResults           String?
+  decisions               String?
+  internalNotes           String?
+  metrics                 Json?
+  learningCards           Json?
+  history                 Json?
+  stageSince              DateTime
+  createdAt               DateTime   @default(now())
+  updatedAt               DateTime   @updatedAt
+}
+
+model Gate {
+  id        String   @id
+  projectId String
+  stage     String
+  decision  String
+  evidence  String
+  at        DateTime
+  decidedBy String
+
+  @@index([projectId])
+}
+
+model TeamMember {
+  id        String  @id
+  projectId String
+  userId    String?
+  name      String
+  role      String
+
+  @@index([projectId])
+}
+
+model VisibilityChange {
+  id        String     @id
+  projectId String
+  from      Visibility
+  to        Visibility
+  byId      String
+  checklist Json?
+  at        DateTime   @default(now())
+}
+
+model Challenge {
+  id                   String        @id
+  slug                 String        @unique
+  title                String
+  area                 Area
+  audience             String
+  problem              String
+  context              String
+  lookingFor           String
+  criteria             String[]
+  opensAt              DateTime
+  closesAt             DateTime
+  benefits             String
+  faq                  Json
+  status               String
+  visibility           String
+  contentStatus        ContentStatus
+  cover                String?
+  targetParticipations Int?
+}
+
+model Content {
+  id          String        @id
+  slug        String        @unique
+  kind        String
+  title       String
+  summary     String
+  body        String
+  cover       String?
+  date        DateTime?
+  place       String?
+  signupUrl   String?
+  projectIds  String[]
+  visibility  String
+  status      ContentStatus
+  meta        Json?
+  createdAt   DateTime      @default(now())
+  publishedAt DateTime?
+}
+
+model Partner {
+  id                   String  @id
+  name                 String
+  kind                 String
+  logo                 String
+  description          String
+  together             String
+  disclosureAuthorized Boolean
+}
+
+model SupportRequest {
+  id            String    @id
+  type          String
+  proposal      String
+  costCenter    String
+  description   String
+  dueDate       DateTime
+  urgent        Boolean
+  status        String
+  requestedById String
+  createdAt     DateTime  @default(now())
+  acceptedAt    DateTime?
+}
+
+model Reaction {
+  id       String   @id
+  ideaId   String
+  userId   String
+  kind     String
+  text     String?
+  parentId String?
+  hidden   Boolean  @default(false)
+  at       DateTime @default(now())
+
+  @@index([ideaId])
+}
+
+model Notification {
+  id       String    @id
+  userId   String
+  title    String
+  body     String
+  href     String?
+  readAt   DateTime?
+  channels String[]
+  at       DateTime  @default(now())
+
+  @@index([userId])
+}
+
+model Consent {
+  id       String   @id
+  userId   String?
+  ideaId   String?
+  document String
+  version  String
+  at       DateTime @default(now())
+}
+
+model AuditLog {
+  id       String   @id
+  userId   String?
+  action   String
+  entity   String
+  entityId String?
+  before   Json?
+  after    Json?
+  at       DateTime @default(now())
+
+  @@index([entity, entityId])
+}
+
+/// Caixa de saída processada pelo worker (email, Teams, Jira, Confluence).
+model OutboxItem {
+  id      String   @id
+  channel String
+  to      String?
+  subject String
+  body    String
+  status  String
+  at      DateTime @default(now())
+}
+
+model ResponseTemplate {
+  key   String @id
+  title String
+  body  String
+}
+
+/// Configurações (valores [a confirmar] da especificação), editáveis em P36.
+model Setting {
+  id    String @id @default("global")
+  value Json
+}

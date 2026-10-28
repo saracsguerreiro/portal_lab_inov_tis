@@ -1,0 +1,280 @@
+@import "tailwindcss";
+
+/* =========================================================================
+   Design system — Ecossistema de Inovação TIS
+   Tokens: cor, tipografia, espaçamento, raio, sombra e movimento.
+   Documentação: docs/DESIGN_SYSTEM.md
+   ========================================================================= */
+
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+
+:root {
+  /* Cor — marca e áreas */
+  --brand: #036ef2;
+  --brand-ink: #0257c2;
+  --brand-soft: #e6f0fe;
+  --lab: #00cfcf;
+  --lab-ink: #0b7a80;
+  --lab-soft: #e0f8f8;
+  --inc: #ff0066;
+  --inc-ink: #c4004f;
+  --inc-soft: #ffe5ef;
+  --ai: #9437ff;
+  --ai-ink: #7424d6;
+  --ai-soft: #f1e7ff;
+  --do: #64748b; /* Digital Office, parceiro transversal */
+  /* Paleta categórica dos gráficos (validada: CVD e contraste), ordem fixa */
+  --chart-1: #036ef2; --chart-2: #0b9aa0; --chart-3: #c4004f; --chart-4: #7424d6;
+
+  /* Cor — superfícies e texto */
+  --bg: #f7f8fb;
+  --surface: #ffffff;
+  --surface-2: #f0f2f7;
+  --surface-3: #e4e8f0;
+  --line: #dde2ea;
+  --line-strong: #c3cad6;
+  --fg: #0c1220;
+  --fg-muted: #4a5468;
+  --fg-subtle: #5b6477;
+  --focus: #036ef2;
+
+  /* Cor — semântica */
+  --ok: #0f7a3d;
+  --ok-soft: #e3f5ea;
+  --warn: #9a5b00;
+  --warn-soft: #fff3db;
+  --danger: #c0262d;
+  --danger-soft: #fde8e8;
+  --info: #0257c2;
+  --info-soft: #e6f0fe;
+
+  /* Tipografia */
+  --font-display: var(--font-syne), "Syne", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: var(--font-geist), "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: var(--font-geist-mono), "Geist Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: clamp(1.2rem, 1.1rem + 0.4vw, 1.375rem);
+  --text-2xl: clamp(1.4rem, 1.2rem + 0.8vw, 1.75rem);
+  --text-3xl: clamp(1.75rem, 1.4rem + 1.4vw, 2.5rem);
+  --text-4xl: clamp(2.25rem, 1.6rem + 2.6vw, 3.75rem);
+  --text-5xl: clamp(2.75rem, 1.8rem + 4.2vw, 6rem);
+
+  /* Espaçamento (base 4 px) */
+  --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px;
+  --space-6: 24px; --space-8: 32px; --space-12: 48px; --space-16: 64px; --space-24: 96px;
+
+  /* Raio */
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-full: 999px;
+
+  /* Sombra */
+  --shadow-1: 0 1px 2px rgb(12 18 32 / 0.06), 0 1px 1px rgb(12 18 32 / 0.04);
+  --shadow-2: 0 4px 16px -4px rgb(12 18 32 / 0.10), 0 2px 4px rgb(12 18 32 / 0.04);
+  --shadow-3: 0 24px 48px -16px rgb(12 18 32 / 0.22);
+  --glow-lab: 0 0 0 1px color-mix(in srgb, var(--lab) 40%, transparent), 0 12px 40px -12px color-mix(in srgb, var(--lab) 55%, transparent);
+  --glow-inc: 0 0 0 1px color-mix(in srgb, var(--inc) 40%, transparent), 0 12px 40px -12px color-mix(in srgb, var(--inc) 55%, transparent);
+
+  /* Movimento */
+  --dur-micro: 180ms;
+  --dur-base: 240ms;
+  --dur-enter: 480ms;
+  --dur-page: 600ms;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  --brand: #3d8ffa;
+  --brand-ink: #7fb4ff;
+  --brand-soft: #0f2442;
+  --lab: #2be3e3;
+  --lab-ink: #5ff0f0;
+  --lab-soft: #072d30;
+  --inc: #ff3d85;
+  --inc-ink: #ff7aab;
+  --inc-soft: #3a0a1e;
+  --ai: #b07bff;
+  --ai-ink: #c9a3ff;
+  --ai-soft: #24123f;
+  --do: #94a3b8;
+  --chart-1: #3d8ffa; --chart-2: #14a3a6; --chart-3: #e8336f; --chart-4: #9a64f0;
+
+  --bg: #070b14;
+  --surface: #0e1422;
+  --surface-2: #151d2e;
+  --surface-3: #1f293d;
+  --line: #222c40;
+  --line-strong: #34405a;
+  --fg: #eef1f7;
+  --fg-muted: #a9b2c4;
+  --fg-subtle: #8a94a8;
+  --focus: #7fb4ff;
+
+  --ok: #4ade80; --ok-soft: #0b2a18;
+  --warn: #fbbf24; --warn-soft: #2e2208;
+  --danger: #f87171; --danger-soft: #331012;
+  --info: #7fb4ff; --info-soft: #0f2442;
+
+  --shadow-1: 0 1px 2px rgb(0 0 0 / 0.5);
+  --shadow-2: 0 6px 20px -6px rgb(0 0 0 / 0.6);
+  --shadow-3: 0 24px 60px -16px rgb(0 0 0 / 0.75);
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-brand: var(--brand);
+  --color-brand-ink: var(--brand-ink);
+  --color-brand-soft: var(--brand-soft);
+  --color-lab: var(--lab);
+  --color-lab-ink: var(--lab-ink);
+  --color-lab-soft: var(--lab-soft);
+  --color-inc: var(--inc);
+  --color-inc-ink: var(--inc-ink);
+  --color-inc-soft: var(--inc-soft);
+  --color-ai: var(--ai);
+  --color-ai-ink: var(--ai-ink);
+  --color-ai-soft: var(--ai-soft);
+  --color-do: var(--do);
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+  --color-line: var(--line);
+  --color-line-strong: var(--line-strong);
+  --color-fg: var(--fg);
+  --color-fg-muted: var(--fg-muted);
+  --color-fg-subtle: var(--fg-subtle);
+  --color-ok: var(--ok);
+  --color-ok-soft: var(--ok-soft);
+  --color-warn: var(--warn);
+  --color-warn-soft: var(--warn-soft);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+  --color-info: var(--info);
+  --color-info-soft: var(--info-soft);
+  --font-display: var(--font-display);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-xl);
+  --shadow-1: var(--shadow-1);
+  --shadow-2: var(--shadow-2);
+  --shadow-3: var(--shadow-3);
+  --ease-out: var(--ease-out);
+}
+
+/* Base */
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: 88px; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+h1, h2, h3, .font-display { font-family: var(--font-display); letter-spacing: -0.02em; line-height: 1.08; }
+::selection { background: color-mix(in srgb, var(--brand) 25%, transparent); }
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+.skip-link {
+  position: absolute; left: 16px; top: -100px; z-index: 100;
+  background: var(--fg); color: var(--bg); padding: 10px 16px; border-radius: var(--radius-md);
+  transition: transform var(--dur-micro) var(--ease-out);
+}
+.skip-link:focus { top: 16px; }
+
+.container-x { width: 100%; max-width: 1240px; margin-inline: auto; padding-inline: 16px; }
+@media (min-width: 768px) { .container-x { padding-inline: 32px; } }
+
+.text-balance { text-wrap: balance; }
+.tabular { font-variant-numeric: tabular-nums; }
+
+/* Grelha de fundo subtil */
+.bg-grid {
+  background-image:
+    linear-gradient(to right, color-mix(in srgb, var(--fg) 6%, transparent) 1px, transparent 1px),
+    linear-gradient(to bottom, color-mix(in srgb, var(--fg) 6%, transparent) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse at center, black 30%, transparent 75%);
+}
+
+/* Esqueletos de carregamento */
+.skeleton {
+  position: relative; overflow: hidden;
+  background: var(--surface-2); border-radius: var(--radius-md);
+}
+.skeleton::after {
+  content: ""; position: absolute; inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--surface) 70%, transparent), transparent);
+  animation: shimmer 1.4s infinite;
+}
+@keyframes shimmer { to { transform: translateX(100%); } }
+
+/* Pulso do estado actual (linha do tempo) */
+@keyframes pulse-ring {
+  0% { transform: scale(1); opacity: 0.6; }
+  100% { transform: scale(2.4); opacity: 0; }
+}
+.pulse-ring { animation: pulse-ring 1.8s var(--ease-out) infinite; }
+
+/* Faixa de parceiros contínua */
+@keyframes marquee { to { transform: translateX(-50%); } }
+.marquee { animation: marquee 40s linear infinite; }
+.marquee:hover, .marquee:focus-within { animation-play-state: paused; }
+
+/* Transições entre páginas (View Transitions API) */
+::view-transition-old(root) { animation: vt-out var(--dur-base) var(--ease-out) both; }
+::view-transition-new(root) { animation: vt-in var(--dur-page) var(--ease-out) both; }
+@keyframes vt-out { to { opacity: 0; transform: translateY(-6px); } }
+@keyframes vt-in { from { opacity: 0; transform: translateY(8px); } }
+
+/* Mudança de tema animada: círculo a partir do botão */
+::view-transition-old(theme), ::view-transition-new(theme) { animation: none; mix-blend-mode: normal; }
+
+/* Reduzir movimento: só fades curtos, nada de parallax nem fundos animados */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 120ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 120ms !important;
+    scroll-behavior: auto !important;
+  }
+  .marquee, .pulse-ring, .skeleton::after { animation: none !important; }
+  ::view-transition-old(root), ::view-transition-new(root) { animation: none !important; }
+}
+
+/* Impressão do painel */
+@media print {
+  header, footer, nav, .no-print { display: none !important; }
+  body { background: white; }
+}
+
+/* Keyframes de micro-interacções (tokens de movimento) */
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes pop { 0% { transform: scale(0.4); } 70% { transform: scale(1.15); } 100% { transform: scale(1); } }
+@keyframes dialogIn { from { opacity: 0; transform: translate(-50%, -48%) scale(0.97); } to { opacity: 1; transform: translate(-50%, -50%) scale(1); } }
+@keyframes rise { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+@keyframes bell { 0%, 100% { transform: rotate(0); } 20% { transform: rotate(14deg); } 40% { transform: rotate(-10deg); } 60% { transform: rotate(6deg); } 80% { transform: rotate(-3deg); } }
+@keyframes caret { 50% { opacity: 0; } }
+.animate-rise { animation: rise var(--dur-enter) var(--ease-out) both; }
+@keyframes word-up { from { transform: translateY(105%); } to { transform: none; } }
+.word-up { animation: word-up 0.7s var(--ease-out) both; }
+.typing-caret::after { content: "▍"; margin-left: 2px; animation: caret 1s steps(1) infinite; color: var(--ai); }

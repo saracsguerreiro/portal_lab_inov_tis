@@ -1,0 +1,103 @@
+{
+  "app": {
+    "name": "TIS Innovation Ecosystem",
+    "short": "TIS Innovation",
+    "tagline": "From idea to business, with the TIS Innovation Lab and Incubator.",
+    "skip": "Skip to content",
+    "demoBanner": "Demo with fictitious data",
+    "viewAs": "View as"
+  },
+  "nav": {
+    "home": "Home", "ecosystem": "The Ecosystem", "lab": "Lab", "incubator": "Incubator", "projects": "Projects",
+    "challenges": "Challenges", "news": "News", "partners": "Partnerships", "submit": "Submit idea", "signIn": "Sign in",
+    "signOut": "Sign out", "ideas": "Ideas", "support": "Support", "learn": "Learn", "community": "Community",
+    "myIdeas": "My ideas", "messages": "Messages", "profile": "My profile", "management": "Management",
+    "dashboard": "Dashboard", "triage": "Triage", "mgmtProjects": "Projects and ventures", "contents": "Content",
+    "aiCriteria": "AI criteria", "communication": "Communication", "users": "Users", "terms": "Terms",
+    "privacy": "Privacy", "contacts": "Contacts", "checkStatus": "Check status", "menu": "Menu",
+    "closeMenu": "Close menu", "notifications": "Notifications", "search": "Search",
+    "commandHint": "Search or go to…", "theme": "Toggle theme", "language": "Language", "breadcrumb": "Breadcrumb"
+  },
+  "actions": {
+    "save": "Save", "cancel": "Cancel", "confirm": "Confirm", "next": "Next", "back": "Back", "submit": "Submit",
+    "send": "Send", "copy": "Copy", "copied": "Copied", "download": "Download", "edit": "Edit", "delete": "Delete",
+    "close": "Close", "open": "Open", "undo": "Undo", "retry": "Try again", "clearFilters": "Clear filters",
+    "seeAll": "See all", "learnMore": "Learn more", "create": "Create", "publish": "Publish", "archive": "Archive",
+    "exportPdf": "Export PDF"
+  },
+  "states": {
+    "loading": "Loading…", "empty": "Nothing here yet.", "error": "Something went wrong. Please try again.",
+    "saved": "Saved", "saving": "Saving…", "draftSaved": "Draft saved", "noResults": "No results for these filters.",
+    "forbidden": "You don't have access to this page.", "forbiddenHint": "Sign in with an account that has the right profile.",
+    "notFound": "Page not found", "notFoundHint": "The page you are looking for does not exist or has moved."
+  },
+  "status": {
+    "RECEBIDA": "Received", "EM_ANALISE": "Under review", "INFO_PEDIDA": "Information requested",
+    "EM_AVALIACAO": "In evaluation", "DECISAO": "Decision", "RETIRADA": "Withdrawn", "DUPLICADA": "Duplicate"
+  },
+  "statusCreator": {
+    "RECEBIDA": "We received your idea", "EM_ANALISE": "Our team is reviewing it", "INFO_PEDIDA": "We need more information",
+    "EM_AVALIACAO": "Your idea is being evaluated", "DECISAO": "There is a decision", "RETIRADA": "You withdrew this idea",
+    "DUPLICADA": "We merged this idea with a similar one"
+  },
+  "decision": { "SELECCIONADA": "Selected", "LISTA_ESPERA": "Waiting list", "ENCAMINHADA": "Forwarded", "NAO_SELECCIONADA": "Not selected" },
+  "ideaType": { "EXTERNA": "External", "MELHORIA": "Improvement", "NEGOCIO_COLABORADOR": "Business" },
+  "origin": { "EXTERNA": "External", "ANONIMA_EXTERNA": "Anonymous (external)", "COLABORADOR": "TIS employee", "ANONIMA_COLABORADOR": "Anonymous (employee)" },
+  "area": { "LAB": "Lab", "INCUBADORA": "Incubator" },
+  "routing": { "LAB": "Lab", "INCUBADORA": "Incubator", "DIGITAL_OFFICE": "Digital Office" },
+  "visibility": { "PUBLICO": "Public", "INTERNO": "Internal", "RESTRITO": "Restricted" },
+  "stage": {
+    "OPORTUNIDADE": "Opportunity", "ESTRATEGIA": "Strategy", "EXPERIMENTACAO": "Experimentation", "PASSAGEM": "Business handover",
+    "INCUBACAO": "Incubating", "CRESCIMENTO": "Growing", "PRONTA_SAIDA": "Ready to exit"
+  },
+  "exit": {
+    "DIRECCAO": "Business unit", "INCUBADORA": "Incubator (internal track)", "STANDARD": "Digital Office standard",
+    "ENCERRADO": "Closed with lessons", "SPIN_IN": "Spin-in", "SPIN_OFF": "Spin-off", "ENCERRAMENTO": "Closure"
+  },
+  "line": { "L1": "L1 · Local AI", "L2": "L2 · Ways of working", "L3": "L3 · Web development", "L4": "L4 · Rapid prototypes" },
+  "role": {
+    "VISITANTE": "Visitor", "ANONIMO": "Anonymous submitter", "EXTERNO": "Startup / Creator", "COLABORADOR": "Employee",
+    "GESTOR_LAB": "Lab manager", "GESTOR_INCUBADORA": "Incubator manager", "COMISSAO_EXECUTIVA": "Executive Committee"
+  },
+  "extType": { "STARTUP": "Startup", "UNIVERSIDADE": "University or research centre", "INDIVIDUAL": "Individual", "OUTRA": "Other organisation" },
+  "support": { "PROPOSTA": "Commercial proposal", "PROTOTIPO": "Prototype or demo", "FORMACAO": "Training", "ARQUITECTURA": "Architecture or technical advice", "OUTRO": "Other" },
+  "supportStatus": { "RECEBIDO": "Received", "ACEITE": "Accepted", "EM_CURSO": "In progress", "CONCLUIDO": "Done", "RECUSADO": "Declined", "ENCAMINHADO": "Forwarded to Digital Office" },
+  "contentKind": { "NOTICIA": "News", "EVENTO": "Event", "DEMO_DAY": "Demo Day", "FORMACAO": "Training", "RECURSO": "Resource", "CHAMPION": "Champion", "EQUIPA": "Team", "PAGINA": "Page", "DESTAQUE": "Highlight", "AGENDA": "Agenda" },
+  "contentStatus": { "RASCUNHO": "Draft", "PUBLICADO": "Published", "ARQUIVADO": "Archived" },
+  "challengeStatus": { "ABERTO": "Open", "EM_AVALIACAO": "Under evaluation", "FECHADO": "Closed" },
+  "audience": { "EXTERNOS": "External", "COLABORADORES": "Employees", "AMBOS": "External and employees" },
+  "forms": {
+    "required": "Required", "optional": "Optional", "step": "Step {n} of {total}", "review": "Review and submit",
+    "reviewHint": "Check your answers before submitting.", "chars": "{n}/{max} characters",
+    "fileHint": "PDF, PPTX or images · up to 3 files · 10 MB each", "fileTooBig": "The file “{name}” is over 10 MB.",
+    "fileType": "The file type of “{name}” is not accepted.", "fileTooMany": "You can attach up to 3 files.",
+    "captcha": "Anti-robot check", "captchaHint": "Confirm you are not a robot.",
+    "rateLimited": "Too many requests. Wait a minute and try again.",
+    "noClientData": "Do not include client data, third-party personal data or confidential information."
+  },
+  "submit": {
+    "title": "What idea do you have?", "lead": "Choose the right path. It takes a few minutes and we save a draft as you write.",
+    "business": "I have a business, product or solution idea",
+    "businessHint": "For startups, universities, researchers, individuals and employees with a business idea.",
+    "improve": "I have an idea to improve TIS", "improveHint": "TIS employees only. Sign in with your Microsoft account.",
+    "deadline": "First response within {days} business days.", "termsLink": "Read the submission and IP terms",
+    "successTitle": "Your idea was submitted", "codeTitle": "Your tracking code",
+    "codeWarning": "Keep this code. Without it you cannot check the idea.", "downloadReceipt": "Download receipt (PDF)",
+    "whatNext": "What happens next"
+  },
+  "auth": {
+    "collabTitle": "I work at TIS", "collabHint": "Use your TIS Microsoft account.", "microsoft": "Sign in with Microsoft",
+    "externalTitle": "I am external", "externalHint": "Startups, universities, researchers and individuals.",
+    "email": "Email", "password": "Password", "confirmPassword": "Confirm password", "signIn": "Sign in",
+    "createAccount": "Create account", "forgot": "Forgot my password", "noAccountTitle": "Don't want an account?",
+    "submitAnon": "Submit an idea without an account", "checkCode": "Check status with a code",
+    "locked": "Account temporarily locked after 5 failed attempts. Try again in 15 minutes.",
+    "invalid": "Incorrect email or password.", "unverified": "Confirm your email before submitting ideas."
+  },
+  "ai": {
+    "title": "AI analysis", "recommends": "The AI recommends; a manager always decides.", "pending": "Analysis pending",
+    "failed": "The analysis failed. The idea is in the queue anyway.", "score": "Score", "routing": "Suggested routing",
+    "similar": "Similar ideas", "risks": "Risks", "summary": "Summary", "completeness": "Completeness",
+    "draft": "Feedback draft", "reanalyze": "Request new analysis"
+  }
+}
