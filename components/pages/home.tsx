@@ -1,7 +1,6 @@
 "use client";
-import dynamic from "next/dynamic";
 import Link from "next/link";
-import { ArrowRight, ArrowUpRight, CalendarDays, FlaskConical, Lightbulb, MapPin, Rocket, Sparkles } from "lucide-react";
+import { ArrowRight, ArrowUpRight, CalendarDays, FlaskConical, Lightbulb, MapPin, Rocket } from "lucide-react";
 import type { Challenge, Content, Partner } from "@/lib/domain/types";
 import type { ProjectCard as ProjectCardT } from "@/lib/services/projects";
 import { t, fmtDate } from "@/lib/i18n";
@@ -9,12 +8,11 @@ import { useQuery, useSession } from "@/lib/client/hooks";
 import { PAGE_ACCESS, roleOf } from "@/lib/permissions";
 import { L } from "@/lib/domain/labels";
 import { Button, Card, Progress, SectionHeading, Tag } from "@/components/ui";
-import { Counter, CssRise, Reveal, Stagger, StaggerItem, WordReveal, TiltCard } from "@/components/motion";
+import { Counter, Reveal, Stagger, StaggerItem, TiltCard } from "@/components/motion";
 import { AreaTag, Countdown, CtaBand, ProjectCard, StatusTag } from "@/components/domain";
 import { AppLink } from "@/components/layout/app-link";
+import { HomeHero } from "./home-hero";
 
-// O shader WebGL só é carregado nesta página e depois da primeira pintura.
-const HeroShader = dynamic(() => import("@/components/motion/hero-shader"), { ssr: false });
 
 interface Props {
   stats: { ideas: number; activeProjects: number; startups: number; partners: number };
@@ -32,38 +30,7 @@ export function HomeView({ stats, featured, challenges, news, partners }: Props)
   return (
     <>
       {/* Banner principal */}
-      <section className="relative isolate overflow-hidden">
-        <HeroShader className="absolute inset-0 -z-10" />
-        <div className="bg-grid absolute inset-0 -z-10 opacity-60" aria-hidden />
-        <div className="container-x grid min-h-[78vh] content-center gap-8 py-20 md:py-28">
-          {user && <PersonalBlock />}
-          <CssRise>
-            <p className="inline-flex items-center gap-2 rounded-full border border-line bg-surface/70 px-3 py-1.5 text-sm text-fg-muted backdrop-blur">
-              <span className="size-2 rounded-full bg-lab" aria-hidden /> Innovation Lab
-              <span className="text-fg-subtle">+</span>
-              <span className="size-2 rounded-full bg-inc" aria-hidden /> Incubadora
-            </p>
-          </CssRise>
-          <h1 className="max-w-5xl text-balance font-display text-[length:var(--text-5xl)] font-bold leading-[1.04] tracking-[-0.03em]">
-            <WordReveal text="Da ideia ao negócio, inovamos juntos em Angola." highlight={["ideia", "negócio"]} />
-          </h1>
-          <CssRise delay={0.35}>
-            <p className="max-w-2xl text-balance text-lg text-fg-muted md:text-xl">
-              O ecossistema de inovação da TIS recolhe ideias de dentro e de fora da empresa, testa-as no Laboratório e fá-las crescer na Incubadora.
-            </p>
-          </CssRise>
-          <CssRise delay={0.45} className="flex flex-wrap gap-3">
-            {canSubmit && (
-              <Button asChild size="lg">
-                <AppLink href="/submeter"><Sparkles /> {t("nav.submit")}</AppLink>
-              </Button>
-            )}
-            <Button asChild size="lg" variant="secondary" className="bg-surface/80 backdrop-blur">
-              <AppLink href="/ecossistema">Conhecer o ecossistema <ArrowRight /></AppLink>
-            </Button>
-          </CssRise>
-        </div>
-      </section>
+      <HomeHero canSubmit={canSubmit} personal={user ? <PersonalBlock /> : undefined} />
 
       {/* Números agregados */}
       <section aria-label="O ecossistema em números" className="container-x -mt-10 relative z-10">

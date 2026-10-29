@@ -136,7 +136,7 @@ Em JavaScript: `DUR`, `EASE_OUT` e `SPRING` em `components/motion`.
 3. Com «reduzir movimento» (`prefers-reduced-motion`), as animações passam a fades de 120 ms. Não há shader, parallax, faixa contínua, pulso, scrollytelling, nem Lenis.
 4. Nenhuma animação atrasa o conteúdo. O primeiro ecrã anima em CSS, sem esperar pela hidratação. Os gráficos montam quando entram no ecrã, e o texto de leitura aparece logo.
 5. As bibliotecas pesadas são carregadas só onde são usadas:
-   - shader: Home;
+   - three.js (robô): Home;
    - GSAP: O Ecossistema;
    - Lenis: páginas informativas;
    - Recharts: painel;
@@ -147,7 +147,7 @@ Em JavaScript: `DUR`, `EASE_OUT` e `SPRING` em `components/motion`.
 
 | Onde | Dinâmica | Implementação |
 |---|---|---|
-| Início | Fundo animado | Shader WebGL em `hero-shader.tsx` |
+| Início | Robô 3D que segue o cursor, pisca, acena e salta; fundo de hexágonos e esferas com parallax; cartão «Contacto visual» que reage à proximidade | three.js em `hero-robot.tsx` (alternativa CSS em `robot-css.tsx`); banner em `components/pages/home-hero.tsx` |
 | Início | Título palavra a palavra | `WordReveal` (CSS) |
 | Início | Contadores, cartões 3D, cascata, faixa de parceiros | `Counter`, `TiltCard`, `Stagger`, `.marquee` |
 | Ecossistema | Funil com scrollytelling e matriz que realça a linha e a coluna | GSAP ScrollTrigger; tabela interactiva |
