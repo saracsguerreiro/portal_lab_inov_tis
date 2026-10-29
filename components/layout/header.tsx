@@ -39,7 +39,7 @@ export function Header({ onOpenCommand }: { onOpenCommand: () => void }) {
   return (
     <header className={cn("sticky top-0 z-40 transition-[background-color,box-shadow,backdrop-filter] duration-[var(--dur-base)]", scrolled ? "bg-bg/85 shadow-1 backdrop-blur-xl" : "bg-bg/60 backdrop-blur-md")}>
       <div className="container-x flex h-16 items-center gap-3 md:h-[72px]">
-        <Link href="/" className="mr-2 flex shrink-0 items-center gap-2.5 rounded-md" aria-label={`${t("app.name")} — ${t("nav.home")}`}>
+        <Link href="/" className="mr-2 flex shrink-0 items-center gap-2.5 rounded-lg" aria-label={`${t("app.name")} — ${t("nav.home")}`}>
           <Logo />
           <span className="hidden font-display text-[15px] font-bold leading-tight sm:block">
             Ecossistema<br />
@@ -80,14 +80,14 @@ export function Header({ onOpenCommand }: { onOpenCommand: () => void }) {
           <ThemeToggle />
           {user && <NotificationBell />}
           {canSubmit && (
-            <Button asChild size="sm" className="hidden h-10 rounded-full px-4 sm:inline-flex">
+            <Button asChild size="sm" className="hidden h-10 px-4 sm:inline-flex">
               <AppLink href="/submeter">
                 <Sparkles aria-hidden /> {t("nav.submit")}
               </AppLink>
             </Button>
           )}
           {ready && (user ? <AccountMenu name={user.name} role={user.role} /> : (
-            <Button asChild variant="secondary" size="sm" className="h-10 rounded-full px-4">
+            <Button asChild variant="secondary" size="sm" className="h-10 px-4">
               <AppLink href="/entrar">{t("nav.signIn")}</AppLink>
             </Button>
           ))}
@@ -100,13 +100,13 @@ export function Header({ onOpenCommand }: { onOpenCommand: () => void }) {
       {workspace.length > 0 && (
         <div className="border-y border-line bg-surface/70 backdrop-blur">
           <nav aria-label="Área de trabalho" className="container-x flex h-11 items-center gap-1 overflow-x-auto [scrollbar-width:none]">
-            <span className="mr-2 shrink-0 font-mono text-[11px] uppercase tracking-widest text-fg-subtle">{L.role(role)}</span>
+            <span className="mr-2 shrink-0 text-xs font-bold uppercase tracking-[var(--ds-letter-spacing-wider)] text-fg-subtle">{L.role(role)}</span>
             {workspace.map((i) => (
               <AppLink
                 key={i.href}
                 href={i.href}
                 aria-current={isActive(i.href) ? "page" : undefined}
-                className={cn("shrink-0 rounded-md px-2.5 py-1.5 text-sm text-fg-muted transition-colors hover:bg-surface-2 hover:text-fg", isActive(i.href) && "bg-surface-2 font-medium text-fg")}
+                className={cn("shrink-0 rounded-lg px-2.5 py-1.5 text-sm text-fg-muted transition-colors hover:bg-surface-2 hover:text-fg", isActive(i.href) && "bg-surface-2 font-medium text-fg")}
               >
                 {t(`nav.${i.key}`)}
               </AppLink>
@@ -153,7 +153,7 @@ export function Header({ onOpenCommand }: { onOpenCommand: () => void }) {
 function MobileGroup({ title, items, isActive, big }: { title?: string; items: { href: string; key: string }[]; isActive: (h: string) => boolean; big?: boolean }) {
   return (
     <div>
-      {title && <p className="mb-2 font-mono text-xs uppercase tracking-widest text-fg-subtle">{title}</p>}
+      {title && <p className="mb-2 text-xs font-bold uppercase tracking-[var(--ds-letter-spacing-wider)] text-fg-subtle">{title}</p>}
       <ul className="grid">
         {items.map((i, n) => (
           <motion.li key={i.href} initial={{ opacity: 0, x: -8 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: n * 0.03, duration: 0.3 }}>
@@ -169,7 +169,7 @@ function MobileGroup({ title, items, isActive, big }: { title?: string; items: {
 
 export function ThemeToggle() {
   const [theme, setTheme] = React.useState<"light" | "dark">("light");
-  React.useEffect(() => setTheme((document.documentElement.dataset.theme as "light" | "dark") ?? "light"), []);
+  React.useEffect(() => setTheme((document.documentElement.dataset.mode as "light" | "dark") ?? "light"), []);
   return (
     <button
       className="relative grid size-10 place-items-center overflow-hidden rounded-full text-fg-muted transition-colors hover:bg-surface-2 hover:text-fg"
@@ -267,14 +267,14 @@ function AccountMenu({ name, role }: { name: string; role: string }) {
           <Dropdown.Separator className="my-1 h-px bg-line" />
           {ACCOUNT_NAV.map((i) => (
             <Dropdown.Item key={i.href} asChild>
-              <Link href={i.href} className="flex min-h-10 items-center gap-2 rounded-md px-3 text-sm outline-none data-[highlighted]:bg-surface-2">
+              <Link href={i.href} className="flex min-h-10 items-center gap-2 rounded-lg px-3 text-sm outline-none data-[highlighted]:bg-surface-2">
                 {i.key === "profile" ? <UserRound className="size-4" /> : null}
                 {t(`nav.${i.key}`)}
               </Link>
             </Dropdown.Item>
           ))}
           <Dropdown.Separator className="my-1 h-px bg-line" />
-          <Dropdown.Item onSelect={() => session.signOut()} className="flex min-h-10 cursor-pointer items-center gap-2 rounded-md px-3 text-sm text-danger outline-none data-[highlighted]:bg-danger-soft">
+          <Dropdown.Item onSelect={() => session.signOut()} className="flex min-h-10 cursor-pointer items-center gap-2 rounded-lg px-3 text-sm text-danger outline-none data-[highlighted]:bg-danger-soft">
             <LogOut className="size-4" /> {t("nav.signOut")}
           </Dropdown.Item>
         </Dropdown.Content>

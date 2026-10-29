@@ -1,0 +1,282 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+:where(:root, :host) {
+  --ds-color-brand-50: #EEF6FF;
+  --ds-color-brand-100: #DAEAFE;
+  --ds-color-brand-200: #BCDCFE;
+  --ds-color-brand-300: #8EC6FD;
+  --ds-color-brand-400: #56A7FA;
+  --ds-color-brand-500: #2884F7;
+  --ds-color-brand-600: #0065ED;
+  --ds-color-brand-700: #0050DA;
+  --ds-color-brand-800: #0C42B1;
+  --ds-color-brand-900: #143B8B;
+  --ds-color-brand-950: #132655;
+  --ds-color-neutral-50: #F8FAFC;
+  --ds-color-neutral-100: #F1F5F9;
+  --ds-color-neutral-200: #E2E8F0;
+  --ds-color-neutral-300: #CBD5E1;
+  --ds-color-neutral-400: #94A3B8;
+  --ds-color-neutral-500: #64748B;
+  --ds-color-neutral-600: #475569;
+  --ds-color-neutral-700: #334155;
+  --ds-color-neutral-800: #1E293B;
+  --ds-color-neutral-900: #0F172A;
+  --ds-color-neutral-950: #070C17;
+  --ds-color-blue-50: #EFF6FF;
+  --ds-color-blue-100: #DBEAFE;
+  --ds-color-blue-200: #BFDBFE;
+  --ds-color-blue-300: #93C5FD;
+  --ds-color-blue-400: #60A5FA;
+  --ds-color-blue-500: #3B82F6;
+  --ds-color-blue-600: #2563EB;
+  --ds-color-blue-700: #1D4ED8;
+  --ds-color-blue-800: #1E40AF;
+  --ds-color-blue-900: #1E3A8A;
+  --ds-color-blue-950: #172554;
+  --ds-color-purple-50: #FAF5FF;
+  --ds-color-purple-100: #F3E8FF;
+  --ds-color-purple-200: #E9D5FF;
+  --ds-color-purple-300: #D8B4FE;
+  --ds-color-purple-400: #C084FC;
+  --ds-color-purple-500: #A855F7;
+  --ds-color-purple-600: #9333EA;
+  --ds-color-purple-700: #7E22CE;
+  --ds-color-purple-800: #6B21A8;
+  --ds-color-purple-900: #581C87;
+  --ds-color-purple-950: #3B0764;
+  --ds-color-red-50: #FEF2F2;
+  --ds-color-red-100: #FEE2E2;
+  --ds-color-red-200: #FECACA;
+  --ds-color-red-300: #FCA5A5;
+  --ds-color-red-400: #F87171;
+  --ds-color-red-500: #EF4444;
+  --ds-color-red-600: #DC2626;
+  --ds-color-red-700: #B91C1C;
+  --ds-color-red-800: #991B1B;
+  --ds-color-red-900: #7F1D1D;
+  --ds-color-red-950: #450A0A;
+  --ds-color-amber-50: #FFF4E3;
+  --ds-color-amber-100: #FFE3B5;
+  --ds-color-amber-200: #FFCA78;
+  --ds-color-amber-300: #F1AA34;
+  --ds-color-amber-400: #D28800;
+  --ds-color-amber-500: #BB7500;
+  --ds-color-amber-600: #A06400;
+  --ds-color-amber-700: #835400;
+  --ds-color-amber-800: #694400;
+  --ds-color-amber-900: #533601;
+  --ds-color-amber-950: #2E1C01;
+  --ds-color-green-50: #EDF9EF;
+  --ds-color-green-100: #D5F2D9;
+  --ds-color-green-200: #AEE6B9;
+  --ds-color-green-300: #75D28B;
+  --ds-color-green-400: #30B65D;
+  --ds-color-green-500: #009F42;
+  --ds-color-green-600: #008535;
+  --ds-color-green-700: #006F2D;
+  --ds-color-green-800: #035926;
+  --ds-color-green-900: #07461E;
+  --ds-color-green-950: #02240C;
+  --ds-color-sky-50: #F0F9FF;
+  --ds-color-sky-100: #E0F2FE;
+  --ds-color-sky-200: #BAE6FD;
+  --ds-color-sky-300: #7DD3FC;
+  --ds-color-sky-400: #38BDF8;
+  --ds-color-sky-500: #0EA5E9;
+  --ds-color-sky-600: #0284C7;
+  --ds-color-sky-700: #0369A1;
+  --ds-color-sky-800: #075985;
+  --ds-color-sky-900: #0C4A6E;
+  --ds-color-sky-950: #082F49;
+  --ds-color-cyan-50: #ECFEFF;
+  --ds-color-cyan-100: #CFFAFE;
+  --ds-color-cyan-200: #A5F3FC;
+  --ds-color-cyan-300: #67E8F9;
+  --ds-color-cyan-400: #22D3EE;
+  --ds-color-cyan-500: #06B6D4;
+  --ds-color-cyan-600: #0891B2;
+  --ds-color-cyan-700: #0E7490;
+  --ds-color-cyan-800: #155E75;
+  --ds-color-cyan-900: #164E63;
+  --ds-color-cyan-950: #083344;
+  --ds-color-emerald-50: #ECFDF5;
+  --ds-color-emerald-100: #D1FAE5;
+  --ds-color-emerald-200: #A7F3D0;
+  --ds-color-emerald-300: #6EE7B7;
+  --ds-color-emerald-400: #34D399;
+  --ds-color-emerald-500: #10B981;
+  --ds-color-emerald-600: #059669;
+  --ds-color-emerald-700: #047857;
+  --ds-color-emerald-800: #065F46;
+  --ds-color-emerald-900: #064E3B;
+  --ds-color-emerald-950: #022C22;
+  --ds-color-indigo-50: #EEF2FF;
+  --ds-color-indigo-100: #E0E7FF;
+  --ds-color-indigo-200: #C7D2FE;
+  --ds-color-indigo-300: #A5B4FC;
+  --ds-color-indigo-400: #818CF8;
+  --ds-color-indigo-500: #6366F1;
+  --ds-color-indigo-600: #4F46E5;
+  --ds-color-indigo-700: #4338CA;
+  --ds-color-indigo-800: #3730A3;
+  --ds-color-indigo-900: #312E81;
+  --ds-color-indigo-950: #1E1B4B;
+  --ds-overlay-black-5: rgba(0, 0, 0, 0.05);
+  --ds-overlay-black-10: rgba(0, 0, 0, 0.1);
+  --ds-overlay-black-20: rgba(0, 0, 0, 0.2);
+  --ds-overlay-black-40: rgba(0, 0, 0, 0.4);
+  --ds-overlay-black-60: rgba(0, 0, 0, 0.6);
+  --ds-overlay-black-80: rgba(0, 0, 0, 0.8);
+  --ds-overlay-white-5: rgba(255, 255, 255, 0.05);
+  --ds-overlay-white-10: rgba(255, 255, 255, 0.1);
+  --ds-overlay-white-20: rgba(255, 255, 255, 0.2);
+  --ds-overlay-white-40: rgba(255, 255, 255, 0.4);
+  --ds-overlay-white-60: rgba(255, 255, 255, 0.6);
+  --ds-overlay-white-80: rgba(255, 255, 255, 0.8);
+  --ds-overlay-brand-600-12: rgba(0, 101, 237, 0.12); /** Brand-600 at 12% opacity. Toned default in light mode. */
+  --ds-overlay-brand-600-20: rgba(0, 101, 237, 0.20); /** Brand-600 at 20% opacity. Toned hover in light mode. */
+  --ds-overlay-brand-600-28: rgba(0, 101, 237, 0.28); /** Brand-600 at 28% opacity. Toned active in light mode. */
+  --ds-overlay-brand-400-15: rgba(86, 167, 250, 0.15); /** Brand-400 at 15% opacity. Toned default in dark mode. */
+  --ds-overlay-brand-400-25: rgba(86, 167, 250, 0.25); /** Brand-400 at 25% opacity. Toned hover in dark mode. */
+  --ds-overlay-brand-400-32: rgba(86, 167, 250, 0.32); /** Brand-400 at 32% opacity. Toned active in dark mode. */
+  --ds-color-disabled-brand-light: rgba(86, 167, 250, 0.5); /** Disabled fill for Button Brand in light mode. */
+  --ds-color-disabled-brand-dark: rgba(79, 99, 125, 0.4); /** Disabled fill for Button Brand in dark mode (pre-blended opaque). */
+  --ds-color-disabled-brand-toned-light: rgba(218, 234, 254, 0.2); /** Disabled fill for Button Brand Toned in light mode. */
+  --ds-color-disabled-brand-toned-dark: rgba(79, 99, 125, 0.2); /** Disabled fill for Button Brand Toned in dark mode. */
+  --ds-color-disabled-success-light: rgba(122, 184, 145, 0.5); /** Disabled fill for Button Success in light mode. */
+  --ds-color-disabled-success-dark: rgba(72, 110, 85, 0.4); /** Disabled fill for Button Success in dark mode. */
+  --ds-color-disabled-error-light: rgba(194, 112, 112, 0.4); /** Disabled fill for Button Danger/Error in light mode. */
+  --ds-color-disabled-error-dark: rgba(123, 80, 80, 0.4); /** Disabled fill for Button Danger/Error in dark mode. */
+  --ds-color-transparent: rgba(0, 0, 0, 0); /** Cor totalmente transparente. Espelha Figma foundation/color/transparent. */
+  --ds-dimension-0: 0rem; /** 0px — ausência de espaço/dimensão. */
+  --ds-dimension-1: 0.0625rem; /** 1px — hairline para bordas, divisores e ajustes finos. */
+  --ds-dimension-2: 0.125rem; /** 2px */
+  --ds-dimension-4: 0.25rem; /** 4px */
+  --ds-dimension-6: 0.375rem; /** 6px */
+  --ds-dimension-8: 0.5rem; /** 8px */
+  --ds-dimension-10: 0.625rem; /** 10px — control deviation (vertical padding md). Off-grid by design. */
+  --ds-dimension-12: 0.75rem; /** 12px */
+  --ds-dimension-14: 0.875rem; /** 14px */
+  --ds-dimension-16: 1rem; /** 16px */
+  --ds-dimension-20: 1.25rem; /** 20px */
+  --ds-dimension-24: 1.5rem; /** 24px */
+  --ds-dimension-28: 1.75rem; /** 28px */
+  --ds-dimension-32: 2rem; /** 32px */
+  --ds-dimension-36: 2.25rem; /** 36px */
+  --ds-dimension-40: 2.5rem; /** 40px */
+  --ds-dimension-44: 2.75rem; /** 44px — WCAG 2.5.5 enhanced touch target */
+  --ds-dimension-48: 3rem; /** 48px */
+  --ds-dimension-56: 3.5rem; /** 56px */
+  --ds-dimension-64: 4rem; /** 64px */
+  --ds-dimension-80: 5rem; /** 80px */
+  --ds-dimension-88: 5.5rem; /** 88px — control deviation for medium button min-width. */
+  --ds-dimension-96: 6rem; /** 96px */
+  --ds-dimension-102: 6.375rem; /** 102px — control deviation for large button min-width. */
+  --ds-dimension-120: 7.5rem; /** 120px */
+  --ds-dimension-128: 8rem; /** 128px */
+  --ds-dimension-320: 20rem; /** 320px — layout scale */
+  --ds-dimension-480: 30rem; /** 480px — layout scale */
+  --ds-dimension-640: 40rem; /** 640px — layout scale */
+  --ds-dimension-800: 50rem; /** 800px — layout scale */
+  --ds-dimension-1024: 64rem; /** 1024px — layout scale */
+  --ds-dimension-1280: 80rem; /** 1280px — layout scale */
+  --ds-duration-instant: 0ms; /** 0ms. Sem animação (raro — sobrescrever em prefers-reduced-motion ou disable explícito). */
+  --ds-duration-fast: 150ms; /** 150ms. Transições rápidas (hover, focus, active). */
+  --ds-duration-moderate: 250ms; /** 250ms. Transições de estado mais elaboradas (toggle, drawer, expand/collapse). */
+  --ds-duration-slow: 400ms; /** 400ms. Animações enfáticas (entrada de overlay, modal, popover). */
+  --ds-duration-slower: 600ms; /** 600ms. Loops contínuos (Spinner) e animações enfáticas longas. */
+  --ds-ease-default: cubic-bezier(0.4, 0, 0.2, 1); /** Curva padrão pra transições UI. Mesmo valor de in-out — alias de conveniência. */
+  --ds-ease-in: cubic-bezier(0.4, 0, 1, 1); /** Aceleração no início, sem desaceleração. Use pra elementos saindo da tela. */
+  --ds-ease-out: cubic-bezier(0, 0, 0.2, 1); /** Sem aceleração, desaceleração no final. Use pra elementos entrando na tela. */
+  --ds-ease-in-out: cubic-bezier(0.4, 0, 0.2, 1); /** Aceleração + desaceleração. Padrão Material; mesmo valor de default. */
+  --ds-ease-linear: cubic-bezier(0, 0, 1, 1); /** Curva linear (velocidade constante). Para loops onde aceleração quebra a percepção (Spinner). */
+  --ds-opacity-5: 0.05;
+  --ds-opacity-10: 0.1;
+  --ds-opacity-25: 0.25;
+  --ds-opacity-50: 0.5;
+  --ds-opacity-75: 0.75;
+  --ds-opacity-100: 1;
+  --ds-radius-2: 0.125rem; /** 2px */
+  --ds-radius-4: 0.25rem; /** 4px */
+  --ds-radius-8: 0.5rem; /** 8px */
+  --ds-radius-12: 0.75rem; /** 12px */
+  --ds-radius-16: 1rem; /** 16px */
+  --ds-radius-24: 1.5rem; /** 24px */
+  --ds-radius-999: 999px; /** Pill/circle. Token name follows Figma. */
+  --ds-shadow-sm: 0 2px 4px 0 rgba(0, 0, 0, 0.08), 0 1px 2px 0 rgba(0, 0, 0, 0.04);
+  --ds-shadow-md: 0 4px 8px 0 rgba(0, 0, 0, 0.08), 0 2px 4px 0 rgba(0, 0, 0, 0.04);
+  --ds-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.12), 0 4px 6px -2px rgba(0, 0, 0, 0.08);
+  --ds-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.15), 0 8px 10px -2px rgba(0, 0, 0, 0.1);
+  --ds-shadow-none: none;
+  --ds-border-width-1: 1px;
+  --ds-border-width-2: 2px;
+  --ds-border-width-4: 4px;
+  --ds-stroke-width-2: 2px; /** 2px icon stroke width. */
+  --ds-stroke-width-1_5: 1.5px; /** 1.5px icon stroke width. */
+  --ds-stroke-width-1_75: 1.75px; /** 1.75px icon stroke width. */
+  --ds-stroke-width-2_25: 2.25px; /** 2.25px icon stroke width. */
+  --ds-stroke-width-2_5: 2.5px; /** 2.5px icon stroke width. */
+  --ds-font-family-sans: var(--font-inter), 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --ds-font-family-mono: var(--font-dm-mono), 'DM Mono', 'JetBrains Mono', 'Fira Code', 'Cascadia Code', 'Consolas', monospace;
+  --ds-font-family-display: var(--font-inter), 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; /** Same as sans today. Reserved slot for future distinct display/heading font. */
+  --ds-font-size-11: 0.6875rem; /** 11px */
+  --ds-font-size-12: 0.75rem; /** 12px */
+  --ds-font-size-14: 0.875rem; /** 14px */
+  --ds-font-size-16: 1rem; /** 16px */
+  --ds-font-size-18: 1.125rem; /** 18px */
+  --ds-font-size-20: 1.25rem; /** 20px */
+  --ds-font-size-24: 1.5rem; /** 24px */
+  --ds-font-size-28: 1.75rem; /** 28px */
+  --ds-font-size-32: 2rem; /** 32px */
+  --ds-font-size-40: 2.5rem; /** 40px */
+  --ds-font-size-48: 3rem; /** 48px */
+  --ds-font-size-56: 3.5rem; /** 56px */
+  --ds-font-size-64: 4rem; /** 64px */
+  --ds-font-size-72: 4.5rem; /** 72px */
+  --ds-font-weight-regular: 400;
+  --ds-font-weight-medium: 500;
+  --ds-font-weight-semibold: 600;
+  --ds-font-weight-bold: 700;
+  --ds-line-height-16: 1rem; /** 16px */
+  --ds-line-height-18: 1.125rem; /** 18px */
+  --ds-line-height-20: 1.25rem; /** 20px */
+  --ds-line-height-22: 1.375rem; /** 22px */
+  --ds-line-height-24: 1.5rem; /** 24px */
+  --ds-line-height-26: 1.625rem; /** 26px */
+  --ds-line-height-28: 1.75rem; /** 28px */
+  --ds-line-height-32: 2rem; /** 32px. Pareia com font.size.20 (xl). */
+  --ds-line-height-34: 2.125rem; /** 34px */
+  --ds-line-height-40: 2.5rem; /** 40px */
+  --ds-line-height-44: 2.75rem; /** 44px */
+  --ds-line-height-48: 3rem; /** 48px. Pareia com font.size.40 (5xl). */
+  --ds-line-height-50: 3.125rem; /** 50px */
+  --ds-line-height-60: 3.75rem; /** 60px */
+  --ds-line-height-64: 4rem; /** 64px. Pareia com font.size.48 (6xl). */
+  --ds-line-height-70: 4.375rem; /** 70px */
+  --ds-line-height-72: 4.5rem; /** 72px. Pareia com font.size.56 (7xl). */
+  --ds-line-height-80: 5rem; /** 80px */
+  --ds-line-height-90: 5.625rem; /** 90px */
+  --ds-line-height-none: 1; /** Ratio legacy. Use em base/*.css apenas. Componente prefere numérico. */
+  --ds-line-height-tight: 1.25; /** Ratio legacy. Use em base/*.css apenas. */
+  --ds-line-height-snug: 1.375; /** Ratio legacy. Use em base/*.css apenas. */
+  --ds-line-height-normal: 1.5; /** Ratio legacy. Use em base/*.css apenas. */
+  --ds-line-height-relaxed: 1.625; /** Ratio legacy. Use em base/*.css apenas. */
+  --ds-line-height-loose: 1.75; /** Ratio legacy. Use em base/*.css apenas. */
+  --ds-line-height-control-sm: 1rem; /** 16px — matches icon-size sm. Single-line control line-height. */
+  --ds-line-height-control-md: 1.25rem; /** 20px — matches icon-size md. Single-line control line-height. */
+  --ds-line-height-control-lg: 1.5rem; /** 24px — matches icon-size lg. Single-line control line-height. */
+  --ds-letter-spacing-tighter: -0.05em;
+  --ds-letter-spacing-tight: -0.025em;
+  --ds-letter-spacing-normal: 0;
+  --ds-letter-spacing-wide: 0.025em;
+  --ds-letter-spacing-wider: 0.05em;
+  --ds-z-0: 0;
+  --ds-z-10: 10;
+  --ds-z-20: 20;
+  --ds-z-30: 30;
+  --ds-z-40: 40;
+  --ds-z-50: 50;
+}

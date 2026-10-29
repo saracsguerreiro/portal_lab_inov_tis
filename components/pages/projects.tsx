@@ -52,8 +52,8 @@ export function ProjectsView({ initial }: { initial: ProjectCardT[] }) {
             </div>
             <div role="radiogroup" aria-label="Área" className="flex gap-1 rounded-[var(--radius-md)] bg-surface-2 p-1">
               {[["", "Todas"], ["LAB", "Laboratório"], ["INCUBADORA", "Incubadora"]].map(([v, l]) => (
-                <button key={v} role="radio" aria-checked={area === v} onClick={() => { setArea(v); setStage(""); }} className={cn("relative min-h-9 rounded-[8px] px-3 text-sm font-medium transition-colors", area === v ? "text-fg" : "text-fg-muted hover:text-fg")}>
-                  {area === v && <motion.span layoutId="area-pill" className="absolute inset-0 -z-0 rounded-[8px] bg-surface shadow-1" transition={{ type: "spring", stiffness: 400, damping: 32 }} />}
+                <button key={v} role="radio" aria-checked={area === v} onClick={() => { setArea(v); setStage(""); }} className={cn("relative min-h-9 rounded-[var(--radius-md)] px-3 text-sm font-medium transition-colors", area === v ? "text-fg" : "text-fg-muted hover:text-fg")}>
+                  {area === v && <motion.span layoutId="area-pill" className="absolute inset-0 -z-0 rounded-[var(--radius-md)] bg-surface shadow-1" transition={{ type: "spring", stiffness: 400, damping: 32 }} />}
                   <span className="relative">{l}</span>
                 </button>
               ))}

@@ -50,8 +50,8 @@ function ManageProjects() {
         <div className="flex flex-wrap items-center gap-2">
           <Tabs value={area} onValueChange={(v) => setArea(v as typeof area)}><TabsList><TabsTrigger value="LAB">Laboratório{myArea !== "LAB" && " (leitura)"}</TabsTrigger><TabsTrigger value="INCUBADORA">Incubadora{myArea !== "INCUBADORA" && " (leitura)"}</TabsTrigger></TabsList></Tabs>
           <div className="ml-auto flex gap-1 rounded-[var(--radius-md)] bg-surface-2 p-1" role="radiogroup" aria-label="Vista">
-            <button role="radio" aria-checked={view === "board"} onClick={() => setView("board")} className={cn("flex min-h-9 items-center gap-1.5 rounded-[8px] px-3 text-sm", view === "board" && "bg-surface shadow-1")}><Columns3 className="size-4" /> Quadro</button>
-            <button role="radio" aria-checked={view === "list"} onClick={() => setView("list")} className={cn("flex min-h-9 items-center gap-1.5 rounded-[8px] px-3 text-sm", view === "list" && "bg-surface shadow-1")}><List className="size-4" /> Lista</button>
+            <button role="radio" aria-checked={view === "board"} onClick={() => setView("board")} className={cn("flex min-h-9 items-center gap-1.5 rounded-[var(--radius-md)] px-3 text-sm", view === "board" && "bg-surface shadow-1")}><Columns3 className="size-4" /> Quadro</button>
+            <button role="radio" aria-checked={view === "list"} onClick={() => setView("list")} className={cn("flex min-h-9 items-center gap-1.5 rounded-[var(--radius-md)] px-3 text-sm", view === "list" && "bg-surface shadow-1")}><List className="size-4" /> Lista</button>
           </div>
         </div>
         {loading && !data ? <ListSkeleton rows={5} /> : rows.length === 0 ? <EmptyState title="Sem projectos nesta área." /> : view === "board" ? (
@@ -231,7 +231,7 @@ function ProjectDrawer({ p, onClose }: { p: Row; onClose: () => void }) {
           <section className="grid gap-3">
             <h3 className="font-display text-lg font-bold">Etapa</h3>
             <div className="flex flex-wrap gap-2">
-              {stages.map((s) => <button key={s} disabled={ro || !!p.exit} onClick={() => run(() => mutate("changeStage", { id: p.id, stage: s as Project["stage"] }), `Etapa: ${L.stage(s)}`)} aria-pressed={p.stage === s} className={cn("min-h-10 rounded-full border px-3 text-sm disabled:cursor-not-allowed", p.stage === s ? "border-brand bg-brand text-white" : "border-line hover:border-line-strong")}>{L.stage(s)}</button>)}
+              {stages.map((s) => <button key={s} disabled={ro || !!p.exit} onClick={() => run(() => mutate("changeStage", { id: p.id, stage: s as Project["stage"] }), `Etapa: ${L.stage(s)}`)} aria-pressed={p.stage === s} className={cn("min-h-10 rounded-full border px-3 text-sm disabled:cursor-not-allowed", p.stage === s ? "border-brand bg-brand text-on-brand" : "border-line hover:border-line-strong")}>{L.stage(s)}</button>)}
             </div>
             {p.area === "LAB" && (
               <Switch id="arch" checked={!!p.architectureValidatedAt} onCheckedChange={(x) => !ro && run(() => mutate("updateProject", { id: p.id, patch: { architectureValidatedAt: x ? new Date().toISOString() : null } }), x ? "Arquitectura validada pelo Digital Office." : "Validação retirada.")} label="Arquitectura validada pelo Digital Office" description={p.architectureValidatedAt ? `Desde ${fmtDate(p.architectureValidatedAt)}` : "Obrigatória antes de sair de Experimentação."} />

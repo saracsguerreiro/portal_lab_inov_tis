@@ -254,7 +254,7 @@ export function IncubatorView({ projects, cases }: { projects: ProjectCardT[]; c
             {["Submete a ideia no formulário externo (com conta ou anónimo).", "A IA faz uma primeira análise e a equipa faz a triagem.", "Recebe o resultado e o feedback em até 10 dias úteis (prazo configurável).", "Se for seleccionada, entra numa coorte com um plano de 6 meses."].map((s, i) => (
               <Reveal key={i} delay={i * 0.08} as="li">
                 <Card className="grid h-full gap-3 bg-bg p-6">
-                  <span className="font-display text-4xl font-extrabold text-inc-ink">0{i + 1}</span>
+                  <span className="font-display text-4xl font-bold text-inc-ink">0{i + 1}</span>
                   <p>{s}</p>
                 </Card>
               </Reveal>

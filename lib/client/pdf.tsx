@@ -5,7 +5,8 @@ import { Document, Page, StyleSheet, Text, View, pdf } from "@react-pdf/renderer
 import type { ResultOf } from "@/lib/services";
 import { L } from "@/lib/domain/labels";
 
-const c = { ink: "#0c1220", muted: "#4a5468", line: "#dde2ea", brand: "#036ef2", lab: "#0b7a80", inc: "#c4004f", ai: "#7424d6", soft: "#f0f2f7" };
+// Cores do Design System TIS (neutral, brand, cyan, purple, indigo).
+const c = { ink: "#0F172A", muted: "#475569", line: "#CBD5E1", brand: "#0065ED", lab: "#0E7490", inc: "#7E22CE", ai: "#4338CA", soft: "#F1F5F9" };
 const s = StyleSheet.create({
   page: { padding: 40, fontSize: 10, color: c.ink, fontFamily: "Helvetica" },
   brand: { fontSize: 9, color: c.muted, marginBottom: 18, textTransform: "uppercase", letterSpacing: 1 },

@@ -53,7 +53,7 @@ export function Wizard({
         <ol className="hidden gap-2 sm:flex" aria-hidden>
           {steps.map((s, i) => (
             <li key={s.key} className={cn("flex flex-1 items-center gap-2 text-xs", i <= current ? "text-fg" : "text-fg-subtle")}>
-              <span className={cn("grid size-5 place-items-center rounded-full text-[10px] font-bold transition-colors", i < current ? "bg-brand text-white" : i === current ? "border-2 border-brand text-brand-ink" : "border border-line-strong")}>
+              <span className={cn("grid size-5 place-items-center rounded-full text-[10px] font-bold transition-colors", i < current ? "bg-brand text-on-brand" : i === current ? "border-2 border-brand text-brand-ink" : "border border-line-strong")}>
                 {i < current ? <Check className="size-3" strokeWidth={3} /> : i + 1}
               </span>
               <span className="truncate">{s.title}</span>
@@ -121,7 +121,7 @@ export function ReviewList({ items, onEdit }: { items: { step: number; label: st
 export async function celebrate() {
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
   const confetti = (await import("canvas-confetti")).default;
-  const colors = ["#00cfcf", "#036ef2", "#ff0066", "#9437ff"];
+  const colors = ["#0891B2", "#0065ED", "#9333EA", "#4F46E5"] // rampas do DS TIS: cyan, brand, purple, indigo;
   confetti({ particleCount: 70, spread: 70, startVelocity: 38, origin: { y: 0.35 }, colors, disableForReducedMotion: true, scalar: 0.9 });
 }
 

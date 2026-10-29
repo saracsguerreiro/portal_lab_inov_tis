@@ -1,4 +1,8 @@
 @import "tailwindcss";
+/* Design System TIS — tokens oficiais (foundation, tema claro e escuro) */
+@import "./ds/foundation.css";
+@import "./ds/theme-light.css";
+@import "./ds/theme-dark.css";
 
 /* =========================================================================
    Design system — Ecossistema de Inovação TIS
@@ -6,126 +10,121 @@
    Documentação: docs/DESIGN_SYSTEM.md
    ========================================================================= */
 
-@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
+@custom-variant dark (&:where([data-mode="dark"], [data-mode="dark"] *));
 
 :root {
-  /* Cor — marca e áreas */
-  --brand: #036ef2;
-  --brand-ink: #0257c2;
-  --brand-soft: #e6f0fe;
-  --lab: #00cfcf;
-  --lab-ink: #0b7a80;
-  --lab-soft: #e0f8f8;
-  --inc: #ff0066;
-  --inc-ink: #c4004f;
-  --inc-soft: #ffe5ef;
-  --ai: #9437ff;
-  --ai-ink: #7424d6;
-  --ai-soft: #f1e7ff;
-  --do: #64748b; /* Digital Office, parceiro transversal */
-  /* Paleta categórica dos gráficos (validada: CVD e contraste), ordem fixa */
-  --chart-1: #036ef2; --chart-2: #0b9aa0; --chart-3: #c4004f; --chart-4: #7424d6;
+  /* ---------------------------------------------------------------------------
+     Todos os valores vêm do Design System TIS (app/ds/*.css, tokens DTCG
+     gerados pelo Style Dictionary). Aqui só se dão nomes do portal aos tokens
+     semânticos do DS. Modo escuro: <html data-mode="dark">, como no DS.
+     --------------------------------------------------------------------------- */
 
-  /* Cor — superfícies e texto */
-  --bg: #f7f8fb;
-  --surface: #ffffff;
-  --surface-2: #f0f2f7;
-  --surface-3: #e4e8f0;
-  --line: #dde2ea;
-  --line-strong: #c3cad6;
-  --fg: #0c1220;
-  --fg-muted: #4a5468;
-  --fg-subtle: #5b6477;
-  --focus: #036ef2;
+  /* Marca (DS: brand) */
+  --brand: var(--ds-brand-background-default);
+  --brand-hover: var(--ds-brand-background-hover);
+  --brand-ink: var(--ds-content-brand);
+  --brand-soft: var(--ds-toned-background-default);
+  --on-brand: var(--ds-brand-content-default);
 
-  /* Cor — semântica */
-  --ok: #0f7a3d;
-  --ok-soft: #e3f5ea;
-  --warn: #9a5b00;
-  --warn-soft: #fff3db;
-  --danger: #c0262d;
-  --danger-soft: #fde8e8;
-  --info: #0257c2;
-  --info-soft: #e6f0fe;
+  /* Áreas do ecossistema, sobre as rampas do DS:
+     Laboratório = cyan · Incubadora = purple · IA = indigo · Digital Office = neutral */
+  --lab: var(--ds-color-cyan-600);
+  --lab-ink: var(--ds-color-cyan-700);
+  --lab-soft: var(--ds-color-cyan-50);
+  --inc: var(--ds-color-purple-600);
+  --inc-ink: var(--ds-color-purple-700);
+  --inc-soft: var(--ds-color-purple-50);
+  --ai: var(--ds-color-indigo-600);
+  --ai-ink: var(--ds-color-indigo-700);
+  --ai-soft: var(--ds-color-indigo-50);
+  --do: var(--ds-color-neutral-500);
+  /* Paleta categórica dos gráficos (rampas do DS, validada: CVD e contraste), ordem fixa */
+  --chart-1: var(--ds-color-brand-600); --chart-2: var(--ds-color-cyan-600); --chart-3: var(--ds-color-purple-600); --chart-4: var(--ds-color-amber-500);
 
-  /* Tipografia */
-  --font-display: var(--font-syne), "Syne", ui-sans-serif, system-ui, sans-serif;
-  --font-sans: var(--font-geist), "Geist", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-mono: var(--font-geist-mono), "Geist Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
-  --text-xs: 0.75rem;
-  --text-sm: 0.875rem;
-  --text-base: 1rem;
-  --text-lg: 1.125rem;
-  --text-xl: clamp(1.2rem, 1.1rem + 0.4vw, 1.375rem);
-  --text-2xl: clamp(1.4rem, 1.2rem + 0.8vw, 1.75rem);
-  --text-3xl: clamp(1.75rem, 1.4rem + 1.4vw, 2.5rem);
-  --text-4xl: clamp(2.25rem, 1.6rem + 2.6vw, 3.75rem);
-  --text-5xl: clamp(2.75rem, 1.8rem + 4.2vw, 6rem);
+  /* Superfícies e texto (DS: background, surface, content, border) */
+  --bg: var(--ds-background-default);
+  --surface: #ffffff; /* cartões sobre o fundo neutral-50 (DS: surface/raised com border-default) */
+  --surface-2: var(--ds-surface-hover);
+  --surface-3: var(--ds-background-subtle);
+  --line: var(--ds-border-subtle);
+  --line-strong: var(--ds-border-default);
+  --control-border: var(--ds-border-control-default);
+  --fg: var(--ds-content-strong);
+  --fg-muted: var(--ds-content-default);
+  --fg-subtle: var(--ds-content-subtle);
+  --focus: var(--ds-border-focus);
 
-  /* Espaçamento (base 4 px) */
-  --space-1: 4px; --space-2: 8px; --space-3: 12px; --space-4: 16px;
-  --space-6: 24px; --space-8: 32px; --space-12: 48px; --space-16: 64px; --space-24: 96px;
+  /* Feedback (DS: feedback.*) */
+  --ok: var(--ds-feedback-success-content-default);
+  --ok-soft: var(--ds-feedback-success-background-subtle);
+  --ok-fill: var(--ds-feedback-success-background-default);
+  --warn: var(--ds-feedback-warning-content-default);
+  --warn-soft: var(--ds-feedback-warning-background-subtle);
+  --danger: var(--ds-feedback-error-content-default);
+  --danger-soft: var(--ds-feedback-error-background-subtle);
+  --danger-fill: var(--ds-feedback-error-background-default);
+  --info: var(--ds-feedback-info-content-default);
+  --info-soft: var(--ds-feedback-info-background-subtle);
 
-  /* Raio */
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 16px;
-  --radius-xl: 24px;
-  --radius-full: 999px;
+  /* Tipografia (DS: Inter e DM Mono; escala body.font-size) */
+  --font-display: var(--ds-font-family-display);
+  --font-sans: var(--ds-font-family-sans);
+  --font-mono: var(--ds-font-family-mono);
+  --text-xs: var(--ds-body-font-size-xs);
+  --text-sm: var(--ds-body-font-size-sm);
+  --text-base: var(--ds-body-font-size-md);
+  --text-lg: var(--ds-body-font-size-lg);
+  --text-xl: var(--ds-body-font-size-xl);                                   /* heading-sm 20 */
+  --text-2xl: var(--ds-body-font-size-2xl);                                 /* heading-md 24 */
+  --text-3xl: clamp(var(--ds-body-font-size-3xl), 1.4rem + 1vw, var(--ds-body-font-size-4xl)); /* heading-lg→xl 28–32 */
+  --text-4xl: clamp(var(--ds-body-font-size-4xl), 1.6rem + 2vw, var(--ds-body-font-size-6xl)); /* heading-xl→display-md 32–48 */
+  --text-5xl: clamp(var(--ds-body-font-size-5xl), 1.6rem + 4vw, var(--ds-body-font-size-8xl)); /* display-sm→xl 40–64 */
 
-  /* Sombra */
-  --shadow-1: 0 1px 2px rgb(12 18 32 / 0.06), 0 1px 1px rgb(12 18 32 / 0.04);
-  --shadow-2: 0 4px 16px -4px rgb(12 18 32 / 0.10), 0 2px 4px rgb(12 18 32 / 0.04);
-  --shadow-3: 0 24px 48px -16px rgb(12 18 32 / 0.22);
-  --glow-lab: 0 0 0 1px color-mix(in srgb, var(--lab) 40%, transparent), 0 12px 40px -12px color-mix(in srgb, var(--lab) 55%, transparent);
-  --glow-inc: 0 0 0 1px color-mix(in srgb, var(--inc) 40%, transparent), 0 12px 40px -12px color-mix(in srgb, var(--inc) 55%, transparent);
+  /* Espaçamento (DS: space.*) */
+  --space-1: var(--ds-space-xs); --space-2: var(--ds-space-sm); --space-3: var(--ds-space-md); --space-4: var(--ds-space-lg);
+  --space-6: var(--ds-space-2xl); --space-8: var(--ds-space-3xl); --space-12: var(--ds-space-5xl); --space-16: var(--ds-space-6xl); --space-24: var(--ds-space-section-xl);
 
-  /* Movimento */
-  --dur-micro: 180ms;
-  --dur-base: 240ms;
-  --dur-enter: 480ms;
-  --dur-page: 600ms;
-  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
-  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  /* Raio (DS: radius.sm 4 · md 8 botões/campos · lg 12 cartões/modais · xl 16 · full) */
+  --radius-sm: var(--ds-radius-4);
+  --radius-md: var(--ds-radius-8);
+  --radius-lg: var(--ds-radius-12);
+  --radius-xl: var(--ds-radius-16);
+  --radius-full: var(--ds-radius-999);
+
+  /* Sombra (DS: shadow.card · overlay · modal) */
+  --shadow-1: var(--ds-shadow-sm);
+  --shadow-2: var(--ds-shadow-md);
+  --shadow-3: var(--ds-shadow-xl);
+  --glow-lab: 0 0 0 1px var(--ds-color-cyan-300), var(--ds-shadow-lg);
+  --glow-inc: 0 0 0 1px var(--ds-color-purple-300), var(--ds-shadow-lg);
+
+  /* Movimento (DS: duration fast 150 · moderate 250 · slow 400 · slower 600; ease) */
+  --dur-micro: var(--ds-duration-fast);
+  --dur-base: var(--ds-duration-moderate);
+  --dur-enter: var(--ds-duration-slow);
+  --dur-page: var(--ds-duration-slower);
+  --ease-out: var(--ds-ease-out);
+  --ease-in-out: var(--ds-ease-in-out);
+  --ease-default: var(--ds-ease-default);
 
   color-scheme: light;
 }
 
-[data-theme="dark"] {
-  --brand: #3d8ffa;
-  --brand-ink: #7fb4ff;
-  --brand-soft: #0f2442;
-  --lab: #2be3e3;
-  --lab-ink: #5ff0f0;
-  --lab-soft: #072d30;
-  --inc: #ff3d85;
-  --inc-ink: #ff7aab;
-  --inc-soft: #3a0a1e;
-  --ai: #b07bff;
-  --ai-ink: #c9a3ff;
-  --ai-soft: #24123f;
-  --do: #94a3b8;
-  --chart-1: #3d8ffa; --chart-2: #14a3a6; --chart-3: #e8336f; --chart-4: #9a64f0;
-
-  --bg: #070b14;
-  --surface: #0e1422;
-  --surface-2: #151d2e;
-  --surface-3: #1f293d;
-  --line: #222c40;
-  --line-strong: #34405a;
-  --fg: #eef1f7;
-  --fg-muted: #a9b2c4;
-  --fg-subtle: #8a94a8;
-  --focus: #7fb4ff;
-
-  --ok: #4ade80; --ok-soft: #0b2a18;
-  --warn: #fbbf24; --warn-soft: #2e2208;
-  --danger: #f87171; --danger-soft: #331012;
-  --info: #7fb4ff; --info-soft: #0f2442;
-
-  --shadow-1: 0 1px 2px rgb(0 0 0 / 0.5);
-  --shadow-2: 0 6px 20px -6px rgb(0 0 0 / 0.6);
-  --shadow-3: 0 24px 60px -16px rgb(0 0 0 / 0.75);
+[data-mode="dark"] {
+  --surface: var(--ds-surface-default);
+  --lab: var(--ds-color-cyan-500);
+  --lab-ink: var(--ds-color-cyan-300);
+  --lab-soft: color-mix(in srgb, var(--ds-color-cyan-500) 15%, transparent);
+  --inc: var(--ds-color-purple-500);
+  --inc-ink: var(--ds-color-purple-300);
+  --inc-soft: color-mix(in srgb, var(--ds-color-purple-500) 15%, transparent);
+  --ai: var(--ds-color-indigo-500);
+  --ai-ink: var(--ds-color-indigo-300);
+  --ai-soft: color-mix(in srgb, var(--ds-color-indigo-500) 15%, transparent);
+  --do: var(--ds-color-neutral-400);
+  --chart-1: var(--ds-color-brand-500); --chart-2: var(--ds-color-emerald-600); --chart-3: var(--ds-color-purple-500); --chart-4: var(--ds-color-amber-500);
+  --glow-lab: 0 0 0 1px var(--ds-color-cyan-700), var(--ds-shadow-lg);
+  --glow-inc: 0 0 0 1px var(--ds-color-purple-700), var(--ds-shadow-lg);
   color-scheme: dark;
 }
 
@@ -133,6 +132,11 @@
   --color-brand: var(--brand);
   --color-brand-ink: var(--brand-ink);
   --color-brand-soft: var(--brand-soft);
+  --color-brand-hover: var(--brand-hover);
+  --color-on-brand: var(--on-brand);
+  --color-control: var(--control-border);
+  --color-ok-fill: var(--ok-fill);
+  --color-danger-fill: var(--danger-fill);
   --color-lab: var(--lab);
   --color-lab-ink: var(--lab-ink);
   --color-lab-soft: var(--lab-soft);
@@ -180,17 +184,17 @@ body {
   color: var(--fg);
   font-family: var(--font-sans);
   font-size: var(--text-base);
-  line-height: 1.6;
+  line-height: var(--ds-body-line-height-md);
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
 }
-h1, h2, h3, .font-display { font-family: var(--font-display); letter-spacing: -0.02em; line-height: 1.08; }
+h1, h2, h3, .font-display { font-family: var(--font-display); letter-spacing: var(--ds-letter-spacing-tight); line-height: 1.15; }
 ::selection { background: color-mix(in srgb, var(--brand) 25%, transparent); }
 
+/* DS: focus ring 2px + 2px de intervalo (WCAG 2.4.11) */
 :focus-visible {
-  outline: 2px solid var(--focus);
-  outline-offset: 3px;
-  border-radius: 6px;
+  outline: var(--ds-border-width-focus) solid var(--focus);
+  outline-offset: 2px;
 }
 
 .skip-link {
@@ -200,7 +204,7 @@ h1, h2, h3, .font-display { font-family: var(--font-display); letter-spacing: -0
 }
 .skip-link:focus { top: 16px; }
 
-.container-x { width: 100%; max-width: 1240px; margin-inline: auto; padding-inline: 16px; }
+.container-x { width: 100%; max-width: var(--ds-size-layout-2xl); margin-inline: auto; padding-inline: 16px; }
 @media (min-width: 768px) { .container-x { padding-inline: 32px; } }
 
 .text-balance { text-wrap: balance; }

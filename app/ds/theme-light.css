@@ -1,0 +1,245 @@
+/**
+ * Do not edit directly, this file was auto-generated.
+ */
+
+:where(:root, :host),
+:where([data-mode="light"], :host([data-mode="light"])) {
+  --ds-brand-content-default: var(--ds-color-neutral-50);
+  --ds-brand-content-hover: var(--ds-color-neutral-50); /** Conteúdo sobre fill primário em hover. */
+  --ds-brand-content-disabled: var(--ds-overlay-white-80);
+  --ds-brand-background-default: var(--ds-color-brand-600);
+  --ds-brand-background-hover: var(--ds-color-brand-700);
+  --ds-brand-background-active: var(--ds-color-brand-800);
+  --ds-brand-background-disabled: var(--ds-color-disabled-brand-light);
+  --ds-toned-content-default: var(--ds-color-brand-700);
+  --ds-toned-content-disabled: var(--ds-color-disabled-brand-light);
+  --ds-toned-background-default: var(--ds-overlay-brand-600-12);
+  --ds-toned-background-hover: var(--ds-overlay-brand-600-20);
+  --ds-toned-background-active: var(--ds-overlay-brand-600-28);
+  --ds-toned-background-disabled: var(--ds-color-disabled-brand-toned-light);
+  --ds-outline-content-default: var(--ds-color-neutral-700);
+  --ds-outline-content-disabled: var(--ds-color-neutral-400);
+  --ds-outline-border-default: var(--ds-color-neutral-500);
+  --ds-outline-border-hover: var(--ds-color-neutral-700);
+  --ds-outline-border-disabled: var(--ds-color-neutral-200);
+  --ds-outline-background-hover: var(--ds-overlay-black-5);
+  --ds-outline-background-active: var(--ds-overlay-black-10);
+  --ds-ghost-content-default: var(--ds-color-neutral-900);
+  --ds-ghost-content-disabled: var(--ds-color-neutral-400);
+  --ds-ghost-background-hover: var(--ds-overlay-black-5);
+  --ds-ghost-background-active: var(--ds-overlay-black-10);
+  --ds-link-content-default: var(--ds-color-brand-700); /** Links em estado default. */
+  --ds-link-content-hover: var(--ds-color-brand-800); /** Links em estado hover. */
+  --ds-link-content-active: var(--ds-color-brand-800); /** Links em estado pressed (mousedown/active). Brand step abaixo de hover. */
+  --ds-link-content-disabled: var(--ds-color-neutral-400); /** Links em estado disabled. */
+  --ds-feedback-success-border-default: var(--ds-color-green-500);
+  --ds-feedback-success-content-default: var(--ds-color-green-700); /** Cor success como conteúdo (mensagens, ícones sobre fundo claro). */
+  --ds-feedback-success-content-contrast: var(--ds-color-neutral-50); /** Conteúdo de alto contraste sobre fill success sólido. */
+  --ds-feedback-success-content-disabled: var(--ds-overlay-white-80); /** Conteúdo success disabled. */
+  --ds-feedback-success-background-default: var(--ds-color-green-600); /** Fill success principal. */
+  --ds-feedback-success-background-hover: var(--ds-color-green-800);
+  --ds-feedback-success-background-active: var(--ds-color-green-900);
+  --ds-feedback-success-background-subtle: var(--ds-color-green-100);
+  --ds-feedback-success-background-disabled: var(--ds-color-disabled-success-light); /** Fill success disabled. */
+  --ds-feedback-warning-border-default: var(--ds-color-amber-500); /** Upgraded from amber.500 to amber.600 (ADR-008) for consistency with error.border/info.border at step 600. Passes 3:1 vs amber.50. */
+  --ds-feedback-warning-content-default: var(--ds-color-amber-700); /** Cor warning como conteúdo. */
+  --ds-feedback-warning-content-contrast: var(--ds-color-amber-950); /** Conteúdo de alto contraste sobre fill warning sólido. Dark text porque amber-500 é claro. */
+  --ds-feedback-warning-background-default: var(--ds-color-amber-300);
+  --ds-feedback-warning-background-hover: var(--ds-color-amber-600);
+  --ds-feedback-warning-background-subtle: var(--ds-color-amber-100);
+  --ds-feedback-error-border-default: var(--ds-color-red-500);
+  --ds-feedback-error-border-hover: var(--ds-color-red-800); /** Borda de feedback erro em estado hover. */
+  --ds-feedback-error-content-default: var(--ds-color-red-700); /** Cor error como conteúdo (mensagens de erro, ícones de alerta). */
+  --ds-feedback-error-content-contrast: var(--ds-color-neutral-50); /** Conteúdo de alto contraste sobre fill error sólido. */
+  --ds-feedback-error-content-disabled: var(--ds-overlay-white-80); /** Conteúdo error disabled. */
+  --ds-feedback-error-background-default: var(--ds-color-red-600);
+  --ds-feedback-error-background-hover: var(--ds-color-red-800);
+  --ds-feedback-error-background-active: var(--ds-color-red-900);
+  --ds-feedback-error-background-subtle: var(--ds-color-red-100);
+  --ds-feedback-error-background-disabled: var(--ds-color-disabled-error-light); /** Fill error disabled. */
+  --ds-feedback-error-content-strong: var(--ds-color-red-700); /** Conteudo error/destructive ativo com contraste reforcado para surfaces elevadas. */
+  --ds-feedback-info-border-default: var(--ds-color-blue-500);
+  --ds-feedback-info-content-default: var(--ds-color-blue-700); /** Cor info como conteúdo. */
+  --ds-feedback-info-content-contrast: var(--ds-color-brand-950); /** Conteúdo de alto contraste sobre fill info sólido. Dark text porque sky-600 é claro demais para branco. */
+  --ds-feedback-info-background-default: var(--ds-color-blue-400);
+  --ds-feedback-info-background-hover: var(--ds-color-blue-600);
+  --ds-feedback-info-background-subtle: var(--ds-color-blue-100);
+  --ds-surface-default: var(--ds-color-neutral-50); /** Card and panel surfaces */
+  --ds-surface-hover: var(--ds-color-neutral-100); /** Surface neutra em hover de controles. */
+  --ds-surface-raised: var(--ds-color-neutral-50); /** Elevated surface (sticky headers, raised cards) */
+  --ds-surface-overlay: var(--ds-color-neutral-50);
+  --ds-surface-elevated: var(--ds-color-neutral-50);
+  --ds-background-default: var(--ds-color-neutral-50); /** Page background */
+  --ds-background-subtle: var(--ds-color-neutral-200); /** Subtle alternate background — one step darker than default to create visual separation. */
+  --ds-background-inverse: var(--ds-color-neutral-900);
+  --ds-background-overlay: var(--ds-overlay-black-60); /** Modal/dialog overlay backdrop */
+  --ds-background-disabled: var(--ds-color-neutral-100); /** Background de componentes em estado disabled (antes state.disabled.background). */
+  --ds-background-transparent: var(--ds-color-transparent); /** Fundo sem preenchimento. Usado por itens ghost-like (Pagination default/disabled). */
+  --ds-content-strong: var(--ds-color-neutral-900); /** Conteúdo de ênfase máxima (títulos, badge labels, modal title, active tab). Tom mais escuro/claro da escala. */
+  --ds-content-default: var(--ds-color-neutral-700); /** Conteúdo padrão (body text, descriptions, form labels). Use este na maioria dos casos. */
+  --ds-content-hover: var(--ds-color-neutral-700); /** Conteúdo neutro em hover. */
+  --ds-content-subtle: var(--ds-color-neutral-600); /** Conteúdo de ênfase reduzida (placeholders, ícones decorativos, helper text). */
+  --ds-content-disabled: var(--ds-color-neutral-400); /** Conteúdo em estado disabled. Isento de contraste WCAG. Unifica text/disabled e state/disabled/foreground (ADR-011). */
+  --ds-content-inverse: var(--ds-color-neutral-50); /** Conteúdo sobre superfícies inversas (background/inverse). */
+  --ds-content-brand: var(--ds-color-brand-700); /** Conteúdo brand sobre superfície neutra. Step 700 garante WCAG AA em fundos neutros e tinted (50–100); fills sólidos continuam em brand.600. */
+  --ds-content-placeholder-rectangle-height-default: var(--ds-dimension-120); /** Altura padrão do placeholder retangular de conteúdo. */
+  --ds-content-placeholder-text-height-default: var(--ds-dimension-12); /** Altura padrão do placeholder textual de conteúdo. */
+  --ds-control-button-min-width-sm: var(--ds-dimension-80);
+  --ds-control-button-min-width-md: var(--ds-dimension-88);
+  --ds-control-button-min-width-lg: var(--ds-dimension-102);
+  --ds-control-radio-dot-size-sm: var(--ds-dimension-6);
+  --ds-control-radio-dot-size-md: var(--ds-dimension-8);
+  --ds-control-radio-dot-size-lg: var(--ds-dimension-10);
+  --ds-control-textarea-min-height-sm: var(--ds-dimension-80);
+  --ds-control-textarea-min-height-md: var(--ds-dimension-96);
+  --ds-control-textarea-min-height-lg: var(--ds-dimension-120);
+  --ds-control-toggle-height-sm: var(--ds-dimension-16);
+  --ds-control-toggle-height-md: var(--ds-dimension-24);
+  --ds-control-toggle-height-lg: var(--ds-dimension-32);
+  --ds-control-toggle-width-sm: var(--ds-dimension-28);
+  --ds-control-toggle-width-md: var(--ds-dimension-44);
+  --ds-control-toggle-width-lg: var(--ds-dimension-56);
+  --ds-control-toggle-thumb-gap: var(--ds-dimension-2);
+  --ds-control-toggle-thumb-size-sm: var(--ds-dimension-12);
+  --ds-control-toggle-thumb-size-md: var(--ds-dimension-20);
+  --ds-control-toggle-thumb-size-lg: var(--ds-dimension-28);
+  --ds-icon-stroke-width-regular-16: var(--ds-stroke-width-1_5);
+  --ds-icon-stroke-width-regular-20: var(--ds-stroke-width-1_75);
+  --ds-icon-stroke-width-regular-24: var(--ds-stroke-width-2);
+  --ds-icon-stroke-width-regular-32: var(--ds-stroke-width-2_5);
+  --ds-icon-stroke-width-strong-16: var(--ds-stroke-width-1_75);
+  --ds-icon-stroke-width-strong-20: var(--ds-stroke-width-2);
+  --ds-icon-stroke-width-strong-24: var(--ds-stroke-width-2_25);
+  --ds-border-default: var(--ds-color-neutral-300);
+  --ds-border-strong: var(--ds-color-neutral-600);
+  --ds-border-subtle: var(--ds-color-neutral-200);
+  --ds-border-inverse: var(--ds-color-neutral-50); /** Borda usada sobre fundos invertidos (escuros em light mode). */
+  --ds-border-focus: var(--ds-color-brand-600);
+  --ds-border-brand: var(--ds-color-brand-600);
+  --ds-border-error: var(--ds-color-red-600);
+  --ds-border-width-default: var(--ds-border-width-1);
+  --ds-border-width-strong: var(--ds-border-width-2);
+  --ds-border-width-focus: var(--ds-border-width-2);
+  --ds-border-focus-error: var(--ds-color-red-600); /** Focus ring color for error/danger states */
+  --ds-border-control-default: var(--ds-color-neutral-500); /** Border color for interactive controls (Input, Select, Textarea, Checkbox, Radio). Meets WCAG 1.4.11 (≥3:1 against control background). */
+  --ds-border-control-hover: var(--ds-color-brand-600); /** Border on hover for interactive controls. */
+  --ds-border-control-disabled: var(--ds-color-neutral-200); /** Border for disabled controls. Exempt from contrast requirements per WCAG 1.4.3. */
+  --ds-overlay-subtle: var(--ds-overlay-black-5);
+  --ds-overlay-default: var(--ds-overlay-black-10);
+  --ds-overlay-medium: var(--ds-overlay-black-20);
+  --ds-overlay-strong: var(--ds-overlay-black-40);
+  --ds-opacity-disabled: var(--ds-opacity-50); /** 50%. Aplicar em componentes em estado disabled. */
+  --ds-motion-duration-instant: var(--ds-duration-instant); /** 0ms — sem animação. */
+  --ds-motion-duration-fast: var(--ds-duration-fast); /** 150ms — hover, focus, active. */
+  --ds-motion-duration-moderate: var(--ds-duration-moderate); /** 250ms — toggle, drawer, expand/collapse. */
+  --ds-motion-duration-slow: var(--ds-duration-slow); /** 400ms — entrada de overlay, modal, popover. */
+  --ds-motion-duration-slower: var(--ds-duration-slower); /** 600ms — loops contínuos (Spinner). */
+  --ds-motion-ease-default: var(--ds-ease-default); /** Curva padrão (= in-out). */
+  --ds-motion-ease-in: var(--ds-ease-in); /** Aceleração no início. Elementos saindo da tela. */
+  --ds-motion-ease-out: var(--ds-ease-out); /** Desaceleração no final. Elementos entrando na tela. */
+  --ds-motion-ease-in-out: var(--ds-ease-in-out); /** Aceleração + desaceleração. Mesmo valor de default. */
+  --ds-motion-ease-linear: var(--ds-ease-linear); /** Velocidade constante. Loops (Spinner). */
+  --ds-space-none: var(--ds-dimension-0); /** 0px. Espaço zero para remover padding/gap mantendo alias semântico. */
+  --ds-space-2xs: var(--ds-dimension-2); /** 2px. Menor espaço semântico para ajustes finos de gap/padding. */
+  --ds-space-xs: var(--ds-dimension-4); /** 4px. Espaço compacto para relações muito próximas. */
+  --ds-space-sm: var(--ds-dimension-8); /** 8px. Espaço pequeno padrão para controles e conteúdo denso. */
+  --ds-space-md: var(--ds-dimension-12); /** 12px. Espaço médio para gaps internos e agrupamentos próximos. */
+  --ds-space-lg: var(--ds-dimension-16); /** 16px. Espaço confortável para padding e separação interna. */
+  --ds-space-xl: var(--ds-dimension-20); /** 20px. Espaço amplo para containers e componentes robustos. */
+  --ds-space-2xl: var(--ds-dimension-24); /** 24px. Espaço extra amplo para containers antes da escala expandida. */
+  --ds-space-3xl: var(--ds-dimension-32); /** 32px. Espaçamento amplo para composição interna de componentes e blocos densos. */
+  --ds-space-4xl: var(--ds-dimension-40); /** 40px. Espaçamento amplo para composição interna quando 32px ainda é curto. */
+  --ds-space-5xl: var(--ds-dimension-48); /** 48px. Limite alto para composição interna antes de entrar em escala de section. */
+  --ds-space-6xl: var(--ds-dimension-64); /** 64px. Espaçamento máximo da escala genérica; use section/* para respiro entre áreas. */
+  --ds-space-section-sm: var(--ds-dimension-48); /** 48px. Espaçamento compacto entre seções, acima da escala genérica comum. */
+  --ds-space-section-md: var(--ds-dimension-64); /** 64px. Espaçamento padrão entre seções de página, docs e specs. */
+  --ds-space-section-lg: var(--ds-dimension-80); /** 80px. Espaçamento amplo entre seções ou grupos editoriais. */
+  --ds-space-section-xl: var(--ds-dimension-96); /** 96px. Espaçamento extra amplo para separação de grandes áreas. */
+  --ds-space-section-2xl: var(--ds-dimension-120); /** 120px. Maior respiro de section previsto para páginas e documentação. */
+  --ds-space-control-padding-6: var(--ds-dimension-6); /** 6px. Padding simétrico de Icon Only sm Button. Único valor de control entre xs(4) e sm(8) que foge da escala space. */
+  --ds-space-control-padding-10: var(--ds-dimension-10); /** 10px. Padding-Y vertical de controles (Input/Button md). Único valor de control que foge da escala space (xs–2xl). */
+  --ds-space-hairline: var(--ds-dimension-1); /** 1px. Menor espaço semântico para bordas hairline, divisores e ajustes finos. */
+  --ds-size-xs: var(--ds-dimension-16); /** 16px. Inline icon em body text, indicator pequeno. */
+  --ds-size-sm: var(--ds-dimension-20); /** 20px. Icon padrão em controle, checkbox/radio sm. */
+  --ds-size-md: var(--ds-dimension-24); /** 24px. Icon grande, checkbox/radio md, avatar icon. */
+  --ds-size-lg: var(--ds-dimension-32); /** 32px. Control height sm, avatar md, spinner padrão. */
+  --ds-size-xl: var(--ds-dimension-40); /** 40px. Control height md (Button/Input/Select default), avatar lg. */
+  --ds-size-2xl: var(--ds-dimension-48); /** 48px. Control height lg, touch target a11y, avatar xl. */
+  --ds-size-3xl: var(--ds-dimension-64); /** 64px. Avatar 2xl, textarea sm, image placeholder. */
+  --ds-size-4xl: var(--ds-dimension-96); /** 96px. Textarea md, skeleton card. */
+  --ds-size-5xl: var(--ds-dimension-128); /** 128px. Textarea lg, skeleton hero. */
+  --ds-size-layout-xs: var(--ds-dimension-320); /** 320px. Mobile container, dropdown menu wide. */
+  --ds-size-layout-sm: var(--ds-dimension-480); /** 480px. Modal sm (form simples). */
+  --ds-size-layout-md: var(--ds-dimension-640); /** 640px. Modal md, content max-width. */
+  --ds-size-layout-lg: var(--ds-dimension-800); /** 800px. Modal lg, narrow page. */
+  --ds-size-layout-xl: var(--ds-dimension-1024); /** 1024px. Page container default. */
+  --ds-size-layout-2xl: var(--ds-dimension-1280); /** 1280px. Page max-width. */
+  --ds-shadow-card: var(--ds-shadow-sm); /** Elevação leve de cards. */
+  --ds-shadow-overlay: var(--ds-shadow-md); /** Elevação média para menus e overlays contextuais. */
+  --ds-shadow-modal: var(--ds-shadow-xl); /** Elevação forte de modais e popovers. */
+  --ds-radius-sm: var(--ds-radius-4); /** 4px. Tags, badges, chips pequenos. */
+  --ds-radius-md: var(--ds-radius-8); /** 8px. Cards, alerts — radius padrão médio. */
+  --ds-radius-lg: var(--ds-radius-12); /** 12px. Cards grandes, containers. */
+  --ds-radius-xl: var(--ds-radius-16); /** 16px. Modais, sheets, dialogs. */
+  --ds-radius-full: var(--ds-radius-999); /** Pill/circle. Aliases foundation.radius.999. */
+  --ds-body-font-family-sans: var(--ds-font-family-sans); /** Font-family sans-serif padrão do sistema. Usar em todo texto UI. */
+  --ds-body-font-family-mono: var(--ds-font-family-mono); /** Monospace pra code blocks e snippets. Espelha Figma typography/body/font-family/mono. */
+  --ds-body-font-weight-regular: var(--ds-font-weight-regular); /** Peso regular (400). Usar em body text, descrições, placeholders. */
+  --ds-body-font-weight-medium: var(--ds-font-weight-medium); /** Peso medium (500). Usar em labels, links secundários, ênfase leve. */
+  --ds-body-font-weight-semibold: var(--ds-font-weight-semibold); /** Peso semibold (600). Usar em títulos, headings, ênfase forte em UI. */
+  --ds-body-font-weight-bold: var(--ds-font-weight-bold); /** Peso bold (700). Usar em títulos de destaque e em negrito inline dentro de body text. */
+  --ds-body-letter-spacing-normal: var(--ds-letter-spacing-normal); /** Letter-spacing neutro (0). Padrão pra body text e UI. */
+  --ds-body-letter-spacing-tight: var(--ds-letter-spacing-tight); /** Letter-spacing apertado (-0.02em). Usar em display/headings grandes. */
+  --ds-body-letter-spacing-wider: var(--ds-letter-spacing-wider); /** Letter-spacing expandido (1.5px). Usado em overline/uppercase. Espelha Figma typography/body/letter-spacing/wider. */
+  --ds-body-font-size-2xs: var(--ds-font-size-11); /** 11px. Caption, micro-text. Use sparingly — abaixo do mínimo recomendado WCAG 1.4.4. */
+  --ds-body-font-size-xs: var(--ds-font-size-12); /** 12px. Helper text, captions, secondary labels. */
+  --ds-body-font-size-sm: var(--ds-font-size-14); /** 14px. Body padrão, labels, descrições. WCAG 1.4.4 compliant. */
+  --ds-body-font-size-md: var(--ds-font-size-16); /** 16px. Body confortável, títulos menores. */
+  --ds-body-font-size-lg: var(--ds-font-size-18); /** 18px. Subtítulos, avatar labels. */
+  --ds-body-font-size-xl: var(--ds-font-size-20); /** 20px. Títulos de card, headings H3. */
+  --ds-body-font-size-2xl: var(--ds-font-size-24); /** 24px. Headings H2, títulos de modal. */
+  --ds-body-font-size-3xl: var(--ds-font-size-28); /** 28px. Headings H1, display. */
+  --ds-body-font-size-4xl: var(--ds-font-size-32); /** 32px. Heading xl, display. */
+  --ds-body-font-size-5xl: var(--ds-font-size-40); /** 40px. Display sm. */
+  --ds-body-font-size-6xl: var(--ds-font-size-48); /** 48px. Display md. */
+  --ds-body-font-size-7xl: var(--ds-font-size-56); /** 56px. Display lg. */
+  --ds-body-font-size-8xl: var(--ds-font-size-64); /** 64px. Display xl. */
+  --ds-body-font-size-9xl: var(--ds-font-size-72); /** 72px. Display 2xl. */
+  --ds-body-line-height-2xs: var(--ds-line-height-16); /** 16px. Pareia com body/font-size/2xs (11px) — ratio ~1.45. */
+  --ds-body-line-height-xs: var(--ds-line-height-18); /** 18px. Pareia com body/font-size/xs (12px) — ratio 1.5. */
+  --ds-body-line-height-sm: var(--ds-line-height-20); /** 20px. Pareia com body/font-size/sm (14px) — ratio 1.43. */
+  --ds-body-line-height-md: var(--ds-line-height-24); /** 24px. Pareia com body/font-size/md (16px) — ratio 1.5. */
+  --ds-body-line-height-lg: var(--ds-line-height-28); /** 28px. Pareia com body/font-size/lg (18px) — ratio 1.55. */
+  --ds-body-line-height-xl: var(--ds-line-height-32); /** 32px. Pareia com body/font-size/xl (20px) — ratio 1.6. */
+  --ds-body-line-height-2xl: var(--ds-line-height-34); /** 34px. Pareia com body/font-size/2xl (24px). */
+  --ds-body-line-height-3xl: var(--ds-line-height-40); /** 40px. Pareia com body/font-size/3xl (28px). */
+  --ds-body-line-height-4xl: var(--ds-line-height-44); /** 44px. Pareia com body/font-size/4xl (32px). */
+  --ds-body-line-height-5xl: var(--ds-line-height-48); /** 48px. Pareia com body/font-size/5xl (40px). */
+  --ds-body-line-height-6xl: var(--ds-line-height-64); /** 64px. Pareia com body/font-size/6xl (48px). */
+  --ds-body-line-height-7xl: var(--ds-line-height-72); /** 72px. Pareia com body/font-size/7xl (56px). */
+  --ds-body-line-height-8xl: var(--ds-line-height-80); /** 80px. Pareia com body/font-size/8xl (64px). */
+  --ds-body-line-height-9xl: var(--ds-line-height-90); /** 90px. Pareia com body/font-size/9xl (72px). */
+  --ds-z-modal: var(--ds-z-40); /** Stack layer para modais e overlays bloqueantes. */
+  --ds-z-toast: var(--ds-z-50); /** Stack layer superior para notificações Toast temporárias. */
+  --ds-z-tooltip: var(--ds-z-40); /** Stack layer para tooltips e floating labels não modais. */
+  --ds-brand-border-default: var(--ds-brand-background-default);
+  --ds-brand-border-hover: var(--ds-brand-background-hover);
+  --ds-brand-border-disabled: var(--ds-brand-background-disabled);
+  --ds-icon-color-default: var(--ds-content-default);
+  --ds-icon-color-hover: var(--ds-content-hover);
+  --ds-icon-color-active: var(--ds-content-strong);
+  --ds-icon-color-disabled: var(--ds-content-disabled);
+  --ds-icon-color-subtle: var(--ds-content-subtle);
+  --ds-icon-color-inverse: var(--ds-content-inverse);
+  --ds-icon-color-success: var(--ds-feedback-success-content-default);
+  --ds-icon-color-warning: var(--ds-feedback-warning-content-default);
+  --ds-icon-color-error: var(--ds-feedback-error-content-default);
+  --ds-icon-color-success-contrast: var(--ds-feedback-success-content-contrast);
+  --ds-icon-color-warning-contrast: var(--ds-feedback-warning-content-contrast);
+  --ds-icon-color-error-contrast: var(--ds-feedback-error-content-contrast);
+  --ds-icon-color-info-contrast: var(--ds-feedback-info-content-contrast);
+  --ds-icon-color-error-strong: var(--ds-feedback-error-content-strong); /** Icone error/destructive ativo pareado com feedback/error/content/strong. */
+  --ds-border-error-hover: var(--ds-feedback-error-border-hover);
+  --ds-border-overlay-default: var(--ds-overlay-default);
+  --ds-border-overlay-medium: var(--ds-overlay-medium);
+}

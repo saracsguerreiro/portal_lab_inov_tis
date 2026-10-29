@@ -185,13 +185,14 @@ const FLOW_TO: Record<IdeaStatus, IdeaStatus[]> = {
 
 // ------------------------------------------------------------- Projectos (10 do Lab + 5 ventures)
 
+// Capas a partir das rampas do Design System TIS (cyan = Laboratório, purple = Incubadora, brand, indigo).
 const covers = {
-  lab: "linear-gradient(135deg,#00cfcf 0%,#036ef2 100%)",
-  lab2: "linear-gradient(135deg,#0b7a80 0%,#00cfcf 60%,#e0f8f8 100%)",
-  lab3: "linear-gradient(135deg,#036ef2 0%,#9437ff 100%)",
-  inc: "linear-gradient(135deg,#ff0066 0%,#9437ff 100%)",
-  inc2: "linear-gradient(135deg,#ff7a1a 0%,#ff0066 100%)",
-  inc3: "linear-gradient(135deg,#c4004f 0%,#ff0066 50%,#ffb4cf 100%)",
+  lab: "linear-gradient(135deg,#0891B2 0%,#0065ED 100%)",
+  lab2: "linear-gradient(135deg,#0E7490 0%,#06B6D4 60%,#CFFAFE 100%)",
+  lab3: "linear-gradient(135deg,#0050DA 0%,#4F46E5 100%)",
+  inc: "linear-gradient(135deg,#9333EA 0%,#4F46E5 100%)",
+  inc2: "linear-gradient(135deg,#7E22CE 0%,#A855F7 100%)",
+  inc3: "linear-gradient(135deg,#6B21A8 0%,#9333EA 50%,#E9D5FF 100%)",
 };
 
 function projects(): Project[] {

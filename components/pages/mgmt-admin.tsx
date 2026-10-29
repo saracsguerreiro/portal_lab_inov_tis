@@ -125,7 +125,7 @@ function useZodState<T extends Record<string, unknown>>(initial: T) {
 }
 
 function NewsForm({ item, done }: { item?: Content; done: () => void }) {
-  const { v, set, err, setErr } = useZodState<Record<string, unknown>>({ kind: item?.kind ?? "NOTICIA", title: item?.title ?? "", summary: item?.summary ?? "", body: item?.body ?? "", date: item?.date?.slice(0, 16) ?? "", place: item?.place ?? "", signupUrl: item?.signupUrl ?? "", visibility: item?.visibility ?? "PUBLICO", status: item?.status ?? "RASCUNHO", projectIds: item?.projectIds ?? [], cover: item?.cover ?? "linear-gradient(135deg,#036ef2,#9437ff)" });
+  const { v, set, err, setErr } = useZodState<Record<string, unknown>>({ kind: item?.kind ?? "NOTICIA", title: item?.title ?? "", summary: item?.summary ?? "", body: item?.body ?? "", date: item?.date?.slice(0, 16) ?? "", place: item?.place ?? "", signupUrl: item?.signupUrl ?? "", visibility: item?.visibility ?? "PUBLICO", status: item?.status ?? "RASCUNHO", projectIds: item?.projectIds ?? [], cover: item?.cover ?? "linear-gradient(135deg,#0065ED,#4F46E5)" });
   const { data: projects = [] } = useQuery("listProjects");
   const save = async () => {
     const r = F7Schema.safeParse({ ...v, date: v.date ? new Date(v.date as string).toISOString() : undefined });
@@ -158,7 +158,7 @@ function NewsForm({ item, done }: { item?: Content; done: () => void }) {
 
 function ChallengeForm({ item, done }: { item?: F6Input & { id: string }; done: () => void }) {
   const today = new Date().toISOString().slice(0, 10);
-  const { v, set, err, setErr } = useZodState<Record<string, unknown>>({ title: item?.title ?? "", area: item?.area ?? "INCUBADORA", audience: item?.audience ?? "AMBOS", problem: item?.problem ?? "", context: item?.context ?? "", lookingFor: item?.lookingFor ?? "", criteria: (item?.criteria ?? []).join("\n"), opensAt: item?.opensAt?.slice(0, 10) ?? today, closesAt: item?.closesAt?.slice(0, 10) ?? "", benefits: item?.benefits ?? "", faq: (item?.faq ?? []).map((f) => `${f.q} | ${f.a}`).join("\n"), visibility: item?.visibility ?? "PUBLICO", contentStatus: item?.contentStatus ?? "RASCUNHO", status: item?.status ?? "ABERTO", cover: item?.cover ?? "linear-gradient(135deg,#ff0066,#9437ff)" });
+  const { v, set, err, setErr } = useZodState<Record<string, unknown>>({ title: item?.title ?? "", area: item?.area ?? "INCUBADORA", audience: item?.audience ?? "AMBOS", problem: item?.problem ?? "", context: item?.context ?? "", lookingFor: item?.lookingFor ?? "", criteria: (item?.criteria ?? []).join("\n"), opensAt: item?.opensAt?.slice(0, 10) ?? today, closesAt: item?.closesAt?.slice(0, 10) ?? "", benefits: item?.benefits ?? "", faq: (item?.faq ?? []).map((f) => `${f.q} | ${f.a}`).join("\n"), visibility: item?.visibility ?? "PUBLICO", contentStatus: item?.contentStatus ?? "RASCUNHO", status: item?.status ?? "ABERTO", cover: item?.cover ?? "linear-gradient(135deg,#9333EA,#4F46E5)" });
   const save = async () => {
     const data = { ...v, criteria: String(v.criteria).split("\n").map((s) => s.trim()).filter(Boolean), faq: String(v.faq).split("\n").filter((l) => l.includes("|")).map((l) => ({ q: l.split("|")[0].trim(), a: l.split("|").slice(1).join("|").trim() })), opensAt: new Date(String(v.opensAt)).toISOString(), closesAt: v.closesAt ? new Date(String(v.closesAt)).toISOString() : "" };
     const r = F6Schema.safeParse(data);
@@ -347,7 +347,7 @@ function Communication() {
                 {th && (
                   <div className="flex flex-col">
                     <div className="flex-1 space-y-3 overflow-y-auto bg-bg p-4">
-                      {th.messages.map((m) => <div key={m.id} className={cn("max-w-[80%] rounded-2xl px-4 py-3 text-sm", m.fromTeam ? "ml-auto bg-brand text-white" : "bg-surface shadow-1")}><p className="mb-1 text-[11px] opacity-70">{m.authorName} · {fmtDateTime(m.at)}</p><p className="whitespace-pre-line">{m.text}</p></div>)}
+                      {th.messages.map((m) => <div key={m.id} className={cn("max-w-[80%] rounded-2xl px-4 py-3 text-sm", m.fromTeam ? "ml-auto bg-brand text-on-brand" : "bg-surface shadow-1")}><p className="mb-1 text-[11px] opacity-70">{m.authorName} · {fmtDateTime(m.at)}</p><p className="whitespace-pre-line">{m.text}</p></div>)}
                     </div>
                     <div className="grid gap-2 border-t border-line p-3">
                       <div className="flex flex-wrap gap-2">

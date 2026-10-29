@@ -1,12 +1,12 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono, Syne } from "next/font/google";
+import { DM_Mono, Inter } from "next/font/google";
 import "./globals.css";
 import { Shell } from "@/components/layout/shell";
 
 // Fontes servidas pelo próprio site (sem pedido bloqueante a terceiros, com métricas de recurso sem CLS).
-const geist = Geist({ subsets: ["latin"], variable: "--font-geist", display: "swap" });
-const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono", display: "swap" });
-const syne = Syne({ subsets: ["latin"], weight: ["600", "700", "800"], variable: "--font-syne", display: "swap" });
+// Tipografia do Design System TIS: Inter (texto e títulos) e DM Mono (códigos).
+const inter = Inter({ subsets: ["latin"], weight: ["400", "500", "600", "700"], variable: "--font-inter", display: "swap" });
+const dmMono = DM_Mono({ subsets: ["latin"], weight: ["400", "500"], variable: "--font-dm-mono", display: "swap" });
 
 export const metadata: Metadata = {
   title: { default: "Ecossistema de Inovação TIS", template: "%s · Ecossistema de Inovação TIS" },
@@ -19,17 +19,17 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#f7f8fb" },
-    { media: "(prefers-color-scheme: dark)", color: "#070b14" },
+    { media: "(prefers-color-scheme: light)", color: "#F8FAFC" },
+    { media: "(prefers-color-scheme: dark)", color: "#070C17" },
   ],
 };
 
 // Aplica o tema guardado antes da primeira pintura (sem «piscar» e sem CLS).
-const themeScript = `(function(){try{var t=localStorage.getItem("eco-theme");if(!t){t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}document.documentElement.dataset.theme=t}catch(e){}})();`;
+const themeScript = `(function(){try{var t=localStorage.getItem("eco-theme");if(!t){t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light"}document.documentElement.dataset.mode=t}catch(e){}})();`;
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pt-PT" suppressHydrationWarning className={`${geist.variable} ${geistMono.variable} ${syne.variable}`}>
+    <html lang="pt-PT" suppressHydrationWarning className={`${inter.variable} ${dmMono.variable}`}>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
       </head>

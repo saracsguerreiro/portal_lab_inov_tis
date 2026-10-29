@@ -6,6 +6,7 @@ import type { Challenge, Content, Partner } from "@/lib/domain/types";
 import type { ProjectCard as ProjectCardT } from "@/lib/services/projects";
 import { t, fmtDate } from "@/lib/i18n";
 import { useQuery, useSession } from "@/lib/client/hooks";
+import { PAGE_ACCESS, roleOf } from "@/lib/permissions";
 import { L } from "@/lib/domain/labels";
 import { Button, Card, Progress, SectionHeading, Tag } from "@/components/ui";
 import { Counter, CssRise, Reveal, Stagger, StaggerItem, WordReveal, TiltCard } from "@/components/motion";
@@ -24,7 +25,8 @@ interface Props {
 }
 
 export function HomeView({ stats, featured, challenges, news, partners }: Props) {
-  const { user } = useSession();
+  const { user, actor } = useSession();
+  const canSubmit = PAGE_ACCESS.P12.includes(roleOf(actor));
   // Com login, a montra pode incluir mais destaques; os números são sempre agregados.
   const { data: liveStats = stats } = useQuery("getPublicStats", undefined, { initialData: stats });
   return (
@@ -51,10 +53,12 @@ export function HomeView({ stats, featured, challenges, news, partners }: Props)
             </p>
           </CssRise>
           <CssRise delay={0.45} className="flex flex-wrap gap-3">
-            <Button asChild size="lg" className="rounded-full">
-              <AppLink href="/submeter"><Sparkles /> {t("nav.submit")}</AppLink>
-            </Button>
-            <Button asChild size="lg" variant="secondary" className="rounded-full bg-surface/80 backdrop-blur">
+            {canSubmit && (
+              <Button asChild size="lg">
+                <AppLink href="/submeter"><Sparkles /> {t("nav.submit")}</AppLink>
+              </Button>
+            )}
+            <Button asChild size="lg" variant="secondary" className="bg-surface/80 backdrop-blur">
               <AppLink href="/ecossistema">Conhecer o ecossistema <ArrowRight /></AppLink>
             </Button>
           </CssRise>

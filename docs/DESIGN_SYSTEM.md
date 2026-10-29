@@ -1,8 +1,43 @@
 # Design system — Ecossistema de Inovação TIS
 
-Os tokens vivem em `app/globals.css`, como variáveis CSS. O Tailwind CSS 4 lê-os com `@theme inline`,
-por isso cada token também é uma classe (`bg-lab`, `text-inc-ink`, `rounded-[var(--radius-lg)]`…).
-Para trocar a marca, mude os valores em `:root` e em `[data-theme="dark"]`: nada mais.
+O portal usa o **Design System TIS v1.0.0** (https://tis-experience.github.io/ds-tis/).
+
+- Os tokens oficiais (DTCG, gerados pelo Style Dictionary) estão copiados sem alterações em `app/ds/`: `foundation.css`, `theme-light.css` e `theme-dark.css`.
+- A única mudança é que a família da fonte aponta para as fontes servidas pelo próprio site, com `next/font`.
+- `app/globals.css` dá nomes do portal aos tokens semânticos do DS (`--brand` → `--ds-brand-background-default`, `--fg` → `--ds-content-strong`…).
+- O Tailwind lê esses nomes com `@theme inline`.
+- **Modo escuro:** `<html data-mode="dark">`, como no DS.
+
+Para actualizar o DS, substitua os três ficheiros em `app/ds/` pela nova versão.
+
+## Regras do DS aplicadas
+
+| Regra do DS | No portal |
+|---|---|
+| Inter para texto e títulos; DM Mono para código | `next/font`: Inter 400–700 e DM Mono 400–500 |
+| Escala tipográfica (display e heading, Inter bold ou semibold, `letter-spacing` tight) | `--text-*` mapeados para `--ds-body-font-size-*` |
+| Pesos até 700 | Sem pesos 800 |
+| Cores: brand, neutral e feedback (success, warning, error, info) | Todas as cores vêm das rampas do DS |
+| Laboratório = rampa cyan; Incubadora = rampa purple; IA = rampa indigo | Rampas do DS usadas como cores de área |
+| Button: Brand, Toned, Outline, Ghost, Link e Danger | `components/ui` |
+| Button: alturas 32/40/48 px, raio 8 px, rótulo bold, só transições de cor | `components/ui` |
+| Um Button Brand por secção | As variantes lab, inc e ai passaram a Brand. Acções secundárias usam Outline ou Ghost |
+| Rótulos de botão com verbo + substantivo | Rótulos dos botões |
+| Input, Select e Textarea: 40 px, borda de controlo neutral-500, hover brand-600, raio 8 px | `components/ui` |
+| Checkbox com borda de controlo | `components/ui` |
+| Toggle: 44 × 24 px, polegar de 20 px | `Switch` |
+| Badge: pill, 12 px bold, 1–2 palavras | `Tag` |
+| Card: raio 12 px, borda default, `shadow.card` | `Card` |
+| Modal: raio 12 px, overlay `background.overlay`, `shadow.modal` | `Dialog` |
+| Tabs: lista com borda inferior, indicador Brand de 2 px, rótulo bold de 14 px | `Tabs` |
+| Focus ring de 2 px com intervalo de 2 px (WCAG 2.4.11) | `:focus-visible` global |
+| Ícones Lucide em stroke | `lucide-react` |
+| Movimento: 150, 250, 400 e 600 ms; curvas `ease-default` e `ease-out` | `--dur-*`, `--ease-*` |
+| Tamanho máximo de layout: 1280 px | `.container-x` |
+
+## Mapeamento (histórico de nomes do portal)
+
+As tabelas abaixo descrevem os nomes do portal; os valores efectivos são agora os do DS TIS.
 
 ## 1. Cor
 

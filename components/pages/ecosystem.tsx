@@ -187,7 +187,7 @@ function RaciMatrix() {
     ["Capacitar equipas", ["R", "C", "C", "I"]],
   ];
   const [hover, setHover] = React.useState<{ r: number; c: number } | null>(null);
-  const tone = (v: string) => (v === "R" ? "bg-brand text-white" : v === "C" ? "bg-brand-soft text-brand-ink" : v === "I" ? "bg-surface-2 text-fg-muted" : "text-fg-subtle");
+  const tone = (v: string) => (v === "R" ? "bg-brand text-on-brand" : v === "C" ? "bg-brand-soft text-brand-ink" : v === "I" ? "bg-surface-2 text-fg-muted" : "text-fg-subtle");
   return (
     <section id="quem-faz" className="border-y border-line bg-surface py-24" aria-labelledby="raci-h">
       <div className="container-x grid gap-10">

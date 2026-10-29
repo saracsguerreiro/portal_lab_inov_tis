@@ -95,7 +95,7 @@ function LinkAnonDialog({ open, onOpenChange }: { open: boolean; onOpenChange: (
         try { const r = await mutate("linkAnonymousIdea", { code }); toast.success(`Ideia ${r.number} associada.`); onOpenChange(false); setCode(""); }
         catch (x) { setErr((x as ApiError).message); } finally { setBusy(false); }
       }}>
-        <Field id="link-code" label="Código" required error={err}><Input value={code} onChange={(e) => setCode(e.target.value.toUpperCase())} placeholder="ECO-XXXX-XXXX" className="font-mono tracking-widest" /></Field>
+        <Field id="link-code" label="Código" required error={err}><Input value={code} onChange={(e) => setCode(e.target.value.toUpperCase())} placeholder="ECO-XXXX-XXXX" className="font-mono tracking-[var(--ds-letter-spacing-wider)]" /></Field>
         <Button type="submit" loading={busy} className="w-fit">Associar</Button>
       </form>
     </Dialog>
@@ -255,7 +255,7 @@ function Messages() {
                 <div className="flex flex-1 flex-col gap-3 overflow-y-auto bg-bg p-4" aria-live="polite">
                   {current.messages.length === 0 && <p className="m-auto text-sm text-fg-subtle">Ainda não há mensagens.</p>}
                   {current.messages.map((m) => (
-                    <motion.div key={m.id} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className={cn("grid max-w-[80%] gap-1 rounded-2xl px-4 py-3", m.fromTeam ? "self-start rounded-tl-sm bg-surface shadow-1" : "self-end rounded-tr-sm bg-brand text-white")}>
+                    <motion.div key={m.id} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className={cn("grid max-w-[80%] gap-1 rounded-2xl px-4 py-3", m.fromTeam ? "self-start rounded-tl-sm bg-surface shadow-1" : "self-end rounded-tr-sm bg-brand text-on-brand")}>
                       {m.kind === "PEDIDO_INFO" && <span className="text-xs font-medium text-warn">Pedido de informação</span>}
                       <p className="whitespace-pre-line text-sm">{m.text}</p>
                       {m.attachments.map((f) => <span key={f.id} className="flex items-center gap-1 text-xs opacity-80"><Paperclip className="size-3" />{f.name}</span>)}

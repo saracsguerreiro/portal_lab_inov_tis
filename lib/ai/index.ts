@@ -230,7 +230,7 @@ export function mockAnalyze(input: AiInput): AiResponse {
       case "maturidade": {
         const m: Record<string, number> = { IDEIA: 1, PROTOTIPO: 3, TESTE: 4, CLIENTES: 5 };
         const s = m[str(a.stage)] ?? 2;
-        return [s, `Fase declarada: ${str(a.stage) || "não indicada"}.`];
+        return [s, `Fase declarada: ${({ IDEIA: "só ideia", PROTOTIPO: "protótipo", TESTE: "produto em teste", CLIENTES: "já com clientes" } as Record<string, string>)[str(a.stage)] ?? "não indicada"}.`];
       }
       case "equipa": {
         const s = a.teamSkills ? lenScore(str(a.teamSkills), 160) : 2;

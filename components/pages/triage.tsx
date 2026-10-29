@@ -95,8 +95,8 @@ function Triage() {
           <Select aria-label="Estado" value={status} onChange={(e) => setStatus(e.target.value)} className="h-10 w-auto"><option value="">Todos os estados</option>{[...BOARD, "RETIRADA", "DUPLICADA"].map((s) => <option key={s} value={s}>{L.status(s as IdeaStatus)}</option>)}</Select>
           <Select aria-label="Origem" value={origin} onChange={(e) => setOrigin(e.target.value)} className="h-10 w-auto"><option value="">Todas as origens</option><option value="EXTERNA">Externa</option><option value="COLABORADOR">Colaborador</option><option value="ANONIMA">Anónima</option></Select>
           <div className="ml-auto flex gap-1 rounded-[var(--radius-md)] bg-surface-2 p-1" role="radiogroup" aria-label="Vista">
-            <button role="radio" aria-checked={view === "list"} onClick={() => setView("list")} className={cn("flex min-h-9 items-center gap-1.5 rounded-[8px] px-3 text-sm", view === "list" && "bg-surface shadow-1")}><List className="size-4" /> Lista</button>
-            <button role="radio" aria-checked={view === "board"} onClick={() => setView("board")} className={cn("flex min-h-9 items-center gap-1.5 rounded-[8px] px-3 text-sm", view === "board" && "bg-surface shadow-1")}><Columns3 className="size-4" /> Quadro</button>
+            <button role="radio" aria-checked={view === "list"} onClick={() => setView("list")} className={cn("flex min-h-9 items-center gap-1.5 rounded-[var(--radius-md)] px-3 text-sm", view === "list" && "bg-surface shadow-1")}><List className="size-4" /> Lista</button>
+            <button role="radio" aria-checked={view === "board"} onClick={() => setView("board")} className={cn("flex min-h-9 items-center gap-1.5 rounded-[var(--radius-md)] px-3 text-sm", view === "board" && "bg-surface shadow-1")}><Columns3 className="size-4" /> Quadro</button>
           </div>
         </div>
         <AnimatePresence>
@@ -274,7 +274,7 @@ function Submission({ d }: { d: TriageDetail }) {
   return (
     <section className="grid gap-5" aria-labelledby="sub-h">
       <div className="grid gap-2">
-        <p className="font-mono text-xs uppercase tracking-widest text-fg-subtle">Submissão</p>
+        <p className="text-xs font-bold uppercase tracking-[var(--ds-letter-spacing-wider)] text-fg-subtle">Submissão</p>
         <h2 id="sub-h" className="font-display text-2xl font-bold">{d.idea.title}</h2>
         <p className="text-fg-muted">{d.idea.summary}</p>
         <p className="text-xs text-fg-subtle">Recebida a {fmtDateTime(d.idea.createdAt)} · prazo de retorno {fmtDate(d.deadline)}</p>
@@ -311,7 +311,7 @@ function AiPanel({ d }: { d: TriageDetail }) {
     <section className="grid gap-6" aria-labelledby="ai-h">
       <div className="flex items-start justify-between gap-3">
         <div>
-          <p className="flex items-center gap-2 font-mono text-xs uppercase tracking-widest text-ai-ink"><Bot className="size-4" /> {t("ai.title")}</p>
+          <p className="flex items-center gap-2 text-xs font-bold uppercase tracking-[var(--ds-letter-spacing-wider)] text-ai-ink"><Bot className="size-4" /> {t("ai.title")}</p>
           <h2 id="ai-h" className="font-display text-2xl font-bold">Recomendação</h2>
           <p className="text-sm text-fg-subtle">{t("ai.recommends")}</p>
         </div>

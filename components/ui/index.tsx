@@ -15,22 +15,31 @@ import { t } from "@/lib/i18n";
 
 // ------------------------------------------------------------- Button
 
+// Button do Design System TIS: Brand (um por secção), Toned, Outline, Ghost, Link, Danger.
+// Alturas sm 32 · md 40 · lg 48; raio md (8 px); rótulo bold; transições só de cor (DS).
 export const buttonVariants = cva(
-  "relative inline-flex select-none items-center justify-center gap-2 whitespace-nowrap rounded-[var(--radius-md)] font-medium transition-[transform,background-color,box-shadow,color] duration-[var(--dur-micro)] ease-[var(--ease-out)] active:scale-[0.97] disabled:pointer-events-none disabled:opacity-50 [&_svg]:size-4 [&_svg]:shrink-0",
+  "relative inline-flex select-none items-center justify-center whitespace-nowrap rounded-[var(--radius-md)] border font-bold transition-[background-color,border-color,color,box-shadow] duration-[var(--dur-micro)] ease-[var(--ease-default)] disabled:pointer-events-none disabled:opacity-50 [&_svg]:shrink-0",
   {
     variants: {
       variant: {
-        primary: "bg-brand text-white shadow-1 hover:bg-brand-ink hover:shadow-2",
-        secondary: "bg-surface text-fg border border-line hover:border-line-strong hover:bg-surface-2",
-        ghost: "text-fg-muted hover:text-fg hover:bg-surface-2",
-        lab: "bg-lab-ink text-white hover:brightness-110",
-        inc: "bg-inc-ink text-white hover:brightness-110",
-        ai: "bg-ai-ink text-white hover:brightness-110",
-        danger: "bg-danger text-white hover:brightness-110",
-        link: "text-brand-ink underline-offset-4 hover:underline px-0 h-auto",
-        inverse: "bg-fg text-bg hover:opacity-90",
+        primary: "border-transparent bg-brand text-on-brand hover:bg-brand-hover active:bg-[var(--ds-brand-background-active)]",
+        toned: "border-transparent bg-[var(--ds-toned-background-default)] text-[var(--ds-toned-content-default)] hover:bg-[var(--ds-toned-background-hover)] active:bg-[var(--ds-toned-background-active)]",
+        secondary: "border-[var(--ds-outline-border-default)] bg-transparent text-[var(--ds-outline-content-default)] hover:border-[var(--ds-outline-border-hover)] hover:bg-[var(--ds-outline-background-hover)] active:bg-[var(--ds-outline-background-active)]",
+        ghost: "border-transparent bg-transparent text-[var(--ds-ghost-content-default)] hover:bg-[var(--ds-ghost-background-hover)] active:bg-[var(--ds-ghost-background-active)]",
+        // As variantes por área seguem a regra do DS: a acção principal é sempre Brand.
+        lab: "border-transparent bg-brand text-on-brand hover:bg-brand-hover",
+        inc: "border-transparent bg-brand text-on-brand hover:bg-brand-hover",
+        ai: "border-transparent bg-brand text-on-brand hover:bg-brand-hover",
+        danger: "border-transparent bg-danger-fill text-[var(--ds-feedback-error-content-contrast)] hover:bg-[var(--ds-feedback-error-background-hover)]",
+        link: "h-auto border-transparent px-0 font-medium text-[var(--ds-link-content-default)] underline-offset-4 hover:text-[var(--ds-link-content-hover)] hover:underline",
+        inverse: "border-transparent bg-[var(--ds-background-inverse)] text-[var(--ds-content-inverse)] hover:opacity-90",
       },
-      size: { sm: "h-9 px-3 text-sm", md: "h-11 px-5 text-[0.95rem]", lg: "h-13 px-7 text-base", icon: "size-11" },
+      size: {
+        sm: "h-8 min-w-20 gap-0.5 px-2 text-sm [&_svg]:size-4",
+        md: "h-10 min-w-[5.5rem] gap-1 px-3 text-sm [&_svg]:size-5",
+        lg: "h-12 min-w-[6.375rem] gap-2 px-4 text-base [&_svg]:size-5",
+        icon: "size-10 [&_svg]:size-5",
+      },
     },
     defaultVariants: { variant: "primary", size: "md" },
   },
@@ -70,7 +79,7 @@ const toneClass: Record<Tone, string> = {
 };
 export function Tag({ tone = "neutral", children, className, dot, ...rest }: { tone?: Tone; dot?: boolean } & React.HTMLAttributes<HTMLSpanElement>) {
   return (
-    <span className={cn("inline-flex items-center gap-1.5 rounded-full border px-2.5 py-0.5 text-xs font-medium leading-5", toneClass[tone], className)} {...rest}>
+    <span className={cn("inline-flex items-center gap-1 rounded-full border px-2 py-0.5 text-xs font-bold leading-[1.125rem]", toneClass[tone], className)} {...rest}>
       {dot && <span className="size-1.5 rounded-full bg-current" aria-hidden />}
       {children}
     </span>
@@ -80,7 +89,7 @@ export function Tag({ tone = "neutral", children, className, dot, ...rest }: { t
 // ------------------------------------------------------------- Card
 
 export function Card({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {
-  return <div className={cn("rounded-[var(--radius-lg)] border border-line bg-surface shadow-1", className)} {...props} />;
+  return <div className={cn("rounded-[var(--radius-lg)] border border-line-strong bg-surface shadow-1", className)} {...props} />;
 }
 
 // ------------------------------------------------------------- Campos
@@ -89,7 +98,7 @@ export const Input = React.forwardRef<HTMLInputElement, React.InputHTMLAttribute
   <input
     ref={ref}
     className={cn(
-      "h-11 w-full rounded-[var(--radius-md)] border border-line bg-surface px-3.5 text-[0.95rem] text-fg placeholder:text-fg-subtle transition-[border-color,box-shadow] duration-[var(--dur-micro)] hover:border-line-strong focus-visible:border-brand focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-brand/15 aria-[invalid=true]:border-danger aria-[invalid=true]:ring-danger/10",
+      "h-10 w-full rounded-[var(--radius-md)] border border-control bg-surface px-3 text-sm text-fg placeholder:text-fg-subtle transition-[border-color,box-shadow] duration-[var(--dur-micro)] hover:border-brand focus-visible:border-brand focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus)] disabled:border-[var(--ds-border-control-disabled)] disabled:bg-[var(--ds-background-disabled)] aria-[invalid=true]:border-danger-fill",
       className,
     )}
     {...props}
@@ -101,7 +110,7 @@ export const Textarea = React.forwardRef<HTMLTextAreaElement, React.TextareaHTML
   <textarea
     ref={ref}
     className={cn(
-      "min-h-28 w-full rounded-[var(--radius-md)] border border-line bg-surface px-3.5 py-3 text-[0.95rem] text-fg placeholder:text-fg-subtle transition-[border-color,box-shadow] duration-[var(--dur-micro)] hover:border-line-strong focus-visible:border-brand focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-brand/15 aria-[invalid=true]:border-danger",
+      "min-h-24 w-full rounded-[var(--radius-md)] border border-control bg-surface px-3 py-2.5 text-sm text-fg placeholder:text-fg-subtle transition-[border-color,box-shadow] duration-[var(--dur-micro)] hover:border-brand focus-visible:border-brand focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus)] aria-[invalid=true]:border-danger-fill",
       className,
     )}
     {...props}
@@ -113,8 +122,8 @@ export const Select = React.forwardRef<HTMLSelectElement, React.SelectHTMLAttrib
   <select
     ref={ref}
     className={cn(
-      "h-11 w-full appearance-none rounded-[var(--radius-md)] border border-line bg-surface bg-[length:16px] bg-[right_12px_center] bg-no-repeat px-3.5 pr-10 text-[0.95rem] text-fg hover:border-line-strong focus-visible:border-brand focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-brand/15 aria-[invalid=true]:border-danger",
-      "bg-[url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%236b7486%22 stroke-width=%222%22><path d=%22m6 9 6 6 6-6%22/></svg>')]",
+      "h-10 w-full appearance-none rounded-[var(--radius-md)] border border-control bg-surface bg-[length:16px] bg-[right_12px_center] bg-no-repeat px-3 pr-10 text-sm text-fg hover:border-brand focus-visible:border-brand focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--focus)] aria-[invalid=true]:border-danger-fill",
+      "bg-[url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%2364748B%22 stroke-width=%222%22><path d=%22m6 9 6 6 6-6%22/></svg>')]",
       className,
     )}
     {...props}
@@ -161,9 +170,9 @@ export function Checkbox({ id, checked, onCheckedChange, label, description, inv
         checked={checked}
         onCheckedChange={(v) => onCheckedChange(v === true)}
         aria-invalid={invalid || undefined}
-        className="peer mt-0.5 grid size-5 shrink-0 place-items-center rounded-[6px] border border-line-strong bg-surface transition-[background-color,border-color,transform] duration-[var(--dur-micro)] hover:border-brand data-[state=checked]:border-brand data-[state=checked]:bg-brand active:scale-90 aria-[invalid=true]:border-danger"
+        className="peer mt-0.5 grid size-5 shrink-0 place-items-center rounded-[var(--radius-sm)] border border-control bg-surface transition-[background-color,border-color] duration-[var(--dur-micro)] hover:border-brand data-[state=checked]:border-brand data-[state=checked]:bg-brand aria-[invalid=true]:border-danger-fill"
       >
-        <CheckboxPrimitive.Indicator className="text-white data-[state=checked]:animate-[pop_var(--dur-base)_var(--ease-out)]">
+        <CheckboxPrimitive.Indicator className="text-on-brand data-[state=checked]:animate-[pop_var(--dur-base)_var(--ease-out)]">
           <Check className="size-3.5" strokeWidth={3} />
         </CheckboxPrimitive.Indicator>
       </CheckboxPrimitive.Root>
@@ -186,9 +195,9 @@ export function Switch({ id, checked, onCheckedChange, label, description }: { i
         id={id}
         checked={checked}
         onCheckedChange={onCheckedChange}
-        className="relative h-7 w-12 shrink-0 rounded-full bg-surface-3 transition-colors duration-[var(--dur-base)] data-[state=checked]:bg-brand"
+        className="relative h-6 w-11 shrink-0 rounded-full bg-[var(--ds-color-neutral-400)] transition-colors duration-[var(--dur-base)] data-[state=checked]:bg-brand"
       >
-        <SwitchPrimitive.Thumb className="block size-6 translate-x-0.5 rounded-full bg-white shadow-2 transition-transform duration-[var(--dur-base)] ease-[var(--ease-out)] data-[state=checked]:translate-x-[22px]" />
+        <SwitchPrimitive.Thumb className="block size-5 translate-x-0.5 rounded-full bg-white shadow-1 transition-transform duration-[var(--dur-base)] ease-[var(--ease-default)] data-[state=checked]:translate-x-[22px]" />
       </SwitchPrimitive.Root>
     </div>
   );
@@ -219,12 +228,12 @@ export function ChoiceGroup<T extends string>({
             name={name}
             onClick={() => toggle(o.value)}
             className={cn(
-              "flex min-h-11 items-start gap-3 rounded-[var(--radius-md)] border px-3.5 py-2.5 text-left text-sm transition-[border-color,background-color,transform] duration-[var(--dur-micro)] ease-[var(--ease-out)] active:scale-[0.98]",
-              on ? "border-brand bg-brand-soft text-fg" : "border-line bg-surface hover:border-line-strong",
+              "flex min-h-11 items-start gap-3 rounded-[var(--radius-md)] border px-3 py-2.5 text-left text-sm transition-[border-color,background-color] duration-[var(--dur-micro)] ease-[var(--ease-default)]",
+              on ? "border-brand bg-brand-soft text-fg" : "border-control bg-surface hover:border-brand",
               invalid && !on && "border-danger/60",
             )}
           >
-            <span className={cn("mt-0.5 grid size-4 shrink-0 place-items-center border transition-colors", multiple ? "rounded-[4px]" : "rounded-full", on ? "border-brand bg-brand text-white" : "border-line-strong")} aria-hidden>
+            <span className={cn("mt-0.5 grid size-4 shrink-0 place-items-center border transition-colors", multiple ? "rounded-[4px]" : "rounded-full", on ? "border-brand bg-brand text-on-brand" : "border-control")} aria-hidden>
               {on && (multiple ? <Check className="size-3" strokeWidth={3} /> : <span className="size-1.5 rounded-full bg-white" />)}
             </span>
             <span>
@@ -242,12 +251,12 @@ export function ChoiceGroup<T extends string>({
 
 export const Tabs = TabsPrimitive.Root;
 export function TabsList({ className, ...p }: React.ComponentProps<typeof TabsPrimitive.List>) {
-  return <TabsPrimitive.List className={cn("inline-flex gap-1 rounded-[var(--radius-md)] bg-surface-2 p-1", className)} {...p} />;
+  return <TabsPrimitive.List className={cn("inline-flex max-w-full gap-0 overflow-x-auto border-b border-line [scrollbar-width:none]", className)} {...p} />;
 }
 export function TabsTrigger({ className, ...p }: React.ComponentProps<typeof TabsPrimitive.Trigger>) {
   return (
     <TabsPrimitive.Trigger
-      className={cn("inline-flex min-h-9 items-center gap-2 rounded-[8px] px-3.5 text-sm font-medium text-fg-muted transition-[background-color,color,box-shadow] duration-[var(--dur-micro)] hover:text-fg data-[state=active]:bg-surface data-[state=active]:text-fg data-[state=active]:shadow-1", className)}
+      className={cn("relative -mb-px inline-flex min-h-11 shrink-0 items-center gap-2 border-b-2 border-transparent px-4 pb-3 pt-3 text-sm font-bold text-fg-muted transition-colors duration-[var(--dur-micro)] hover:text-fg data-[state=active]:border-brand data-[state=active]:text-fg [&_svg]:size-4", className)}
       {...p}
     />
   );
@@ -258,16 +267,16 @@ export function Dialog({ open, onOpenChange, title, description, children, wide 
   return (
     <DialogPrimitive.Root open={open} onOpenChange={onOpenChange}>
       <DialogPrimitive.Portal>
-        <DialogPrimitive.Overlay className="fixed inset-0 z-50 bg-black/40 backdrop-blur-[2px] data-[state=open]:animate-[fadeIn_var(--dur-base)_var(--ease-out)]" />
+        <DialogPrimitive.Overlay className="fixed inset-0 z-50 bg-[var(--ds-background-overlay)] data-[state=open]:animate-[fadeIn_var(--dur-base)_var(--ease-out)]" />
         <DialogPrimitive.Content
           className={cn(
-            "fixed left-1/2 top-1/2 z-50 max-h-[90dvh] w-[calc(100%-32px)] -translate-x-1/2 -translate-y-1/2 overflow-y-auto rounded-[var(--radius-xl)] border border-line bg-surface p-6 shadow-3 data-[state=open]:animate-[dialogIn_var(--dur-enter)_var(--ease-out)]",
+            "fixed left-1/2 top-1/2 z-50 max-h-[90dvh] w-[calc(100%-32px)] -translate-x-1/2 -translate-y-1/2 overflow-y-auto rounded-[var(--radius-lg)] border border-line bg-surface p-6 shadow-3 data-[state=open]:animate-[dialogIn_var(--dur-enter)_var(--ease-out)]",
             wide ? "max-w-3xl" : "max-w-lg",
           )}
         >
           <div className="mb-4 flex items-start justify-between gap-4">
             <div>
-              <DialogPrimitive.Title className="font-display text-xl font-bold">{title}</DialogPrimitive.Title>
+              <DialogPrimitive.Title className="text-xl font-semibold">{title}</DialogPrimitive.Title>
               {description && <DialogPrimitive.Description className="mt-1 text-sm text-fg-muted">{description}</DialogPrimitive.Description>}
             </div>
             <DialogPrimitive.Close className="grid size-10 place-items-center rounded-full text-fg-muted hover:bg-surface-2 hover:text-fg" aria-label={t("actions.close")}>
@@ -287,7 +296,7 @@ export function Tip({ label, children }: { label: React.ReactNode; children: Rea
       <TooltipPrimitive.Root>
         <TooltipPrimitive.Trigger asChild>{children}</TooltipPrimitive.Trigger>
         <TooltipPrimitive.Portal>
-          <TooltipPrimitive.Content sideOffset={6} className="z-50 max-w-xs rounded-[var(--radius-sm)] bg-fg px-2.5 py-1.5 text-xs text-bg shadow-2 data-[state=delayed-open]:animate-[fadeIn_var(--dur-micro)_var(--ease-out)]">
+          <TooltipPrimitive.Content sideOffset={6} className="z-50 max-w-xs rounded-[var(--radius-sm)] bg-[var(--ds-background-inverse)] px-2 py-1 text-xs text-[var(--ds-content-inverse)] shadow-2 data-[state=delayed-open]:animate-[fadeIn_var(--dur-micro)_var(--ease-out)]">
             {label}
             <TooltipPrimitive.Arrow className="fill-fg" />
           </TooltipPrimitive.Content>
@@ -361,7 +370,7 @@ export function EmptyState({ title, hint, action, icon }: { title: string; hint?
   return (
     <div className="grid place-items-center gap-3 rounded-[var(--radius-lg)] border border-dashed border-line-strong bg-surface/60 px-6 py-14 text-center">
       <div className="grid size-14 place-items-center rounded-full bg-surface-2 text-fg-subtle">{icon ?? <Inbox className="size-6" />}</div>
-      <p className="font-display text-lg font-bold">{title}</p>
+      <p className="text-lg font-semibold">{title}</p>
       {hint && <p className="max-w-md text-sm text-fg-muted">{hint}</p>}
       {action}
     </div>
@@ -394,8 +403,8 @@ export function Progress({ value, className, tone = "brand", label }: { value: n
 export function SectionHeading({ eyebrow, title, lead, align = "left", id }: { eyebrow?: React.ReactNode; title: React.ReactNode; lead?: React.ReactNode; align?: "left" | "center"; id?: string }) {
   return (
     <div className={cn("grid gap-3", align === "center" && "mx-auto max-w-2xl text-center")}>
-      {eyebrow && <p className="font-mono text-xs uppercase tracking-[0.18em] text-fg-subtle">{eyebrow}</p>}
-      <h2 id={id} className="text-balance font-display text-[length:var(--text-3xl)] font-bold">{title}</h2>
+      {eyebrow && <p className="text-xs font-bold uppercase tracking-[var(--ds-letter-spacing-wider)] text-brand-ink">{eyebrow}</p>}
+      <h2 id={id} className="text-balance text-[length:var(--text-3xl)] font-bold">{title}</h2>
       {lead && <p className="text-balance text-lg text-fg-muted">{lead}</p>}
     </div>
   );

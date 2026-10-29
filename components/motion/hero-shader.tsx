@@ -70,14 +70,14 @@ export default function HeroShader({ className }: { className?: string }) {
     const u = (n: string) => gl.getUniformLocation(prog, n);
     const setColors = () => {
       const cs = getComputedStyle(document.documentElement);
-      gl.uniform3fv(u("c1"), hex(cs.getPropertyValue("--lab").trim() || "#00cfcf"));
-      gl.uniform3fv(u("c2"), hex(cs.getPropertyValue("--brand").trim() || "#036ef2"));
-      gl.uniform3fv(u("c3"), hex(cs.getPropertyValue("--inc").trim() || "#ff0066"));
-      gl.uniform1f(u("dark"), document.documentElement.dataset.theme === "dark" ? 1 : 0);
+      gl.uniform3fv(u("c1"), hex(cs.getPropertyValue("--lab").trim() || "#0891B2"));
+      gl.uniform3fv(u("c2"), hex(cs.getPropertyValue("--brand").trim() || "#0065ED"));
+      gl.uniform3fv(u("c3"), hex(cs.getPropertyValue("--inc").trim() || "#9333EA"));
+      gl.uniform1f(u("dark"), document.documentElement.dataset.mode === "dark" ? 1 : 0);
     };
     setColors();
     const mo = new MutationObserver(setColors);
-    mo.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+    mo.observe(document.documentElement, { attributes: true, attributeFilter: ["data-mode"] });
 
     const scale = Math.min(window.devicePixelRatio, 1.5) * 0.4; // resolução reduzida: suave e barato
     const resize = () => {

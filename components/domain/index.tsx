@@ -59,7 +59,7 @@ export function PageHeader({ eyebrow, title, lead, crumbs, actions, tone }: { ey
         {crumbs && <Breadcrumbs items={crumbs} />}
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div className="grid max-w-3xl gap-3">
-            {eyebrow && <p className="font-mono text-xs uppercase tracking-[0.18em] text-fg-subtle">{eyebrow}</p>}
+            {eyebrow && <p className="text-xs font-bold uppercase tracking-[var(--ds-letter-spacing-wider)] text-fg-subtle">{eyebrow}</p>}
             <h1 className="text-balance font-display text-[length:var(--text-4xl)] font-bold">{title}</h1>
             {lead && <p className="text-balance text-lg text-fg-muted">{lead}</p>}
           </div>
@@ -86,7 +86,8 @@ export function SubNav({ items, tone = "brand" }: { items: { id: string; label: 
     els.forEach((e) => io.observe(e));
     return () => io.disconnect();
   }, [items]);
-  const color = { brand: "bg-brand", lab: "bg-lab-ink", inc: "bg-inc-ink" }[tone];
+  void tone; // DS: indicador activo sempre com a cor Brand
+  const color = "bg-brand";
   return (
     <nav aria-label="Nesta página" className="sticky top-16 z-30 border-b border-line bg-bg/85 backdrop-blur-xl md:top-[72px]">
       <ul className="container-x flex gap-1 overflow-x-auto py-2 [scrollbar-width:none]">
@@ -103,7 +104,7 @@ export function SubNav({ items, tone = "brand" }: { items: { id: string; label: 
                 }
               }}
               aria-current={active === i.id ? "location" : undefined}
-              className={cn("relative block rounded-full px-3.5 py-2 text-sm transition-colors", active === i.id ? "font-medium text-white" : "text-fg-muted hover:text-fg")}
+              className={cn("relative block rounded-full px-3.5 py-2 text-sm transition-colors", active === i.id ? "font-bold text-on-brand" : "text-fg-muted hover:text-fg")}
             >
               {active === i.id && <motion.span layoutId="subnav-pill" className={cn("absolute inset-0 -z-10 rounded-full", color)} transition={{ type: "spring", stiffness: 380, damping: 30 }} />}
               {i.label}
@@ -130,7 +131,7 @@ export function ProjectCard({ p, showVisibility = true }: { p: ProjectCardData; 
         <div className="relative h-40 overflow-hidden" style={{ viewTransitionName: `cover-${p.slug}` }}>
           <div className="absolute inset-0 transition-transform duration-[var(--dur-enter)] ease-[var(--ease-out)] group-hover:scale-105" style={{ background: p.cover ?? "var(--surface-3)" }} />
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_120%,rgb(255_255_255/0.35),transparent_50%)] mix-blend-overlay" aria-hidden />
-          <span className="absolute bottom-3 left-4 font-display text-4xl font-extrabold text-white/90 drop-shadow-sm" aria-hidden>{p.name.slice(0, 1)}</span>
+          <span className="absolute bottom-3 left-4 font-display text-4xl font-bold text-white/90 drop-shadow-sm" aria-hidden>{p.name.slice(0, 1)}</span>
           <div className="absolute right-3 top-3 flex gap-1.5">{showVisibility && <VisibilityTag v={p.visibility} />}</div>
         </div>
         <div className="flex flex-1 flex-col gap-3 p-5">
@@ -186,7 +187,7 @@ export function IdeaTimeline({ steps, status, decision }: { steps: { status: str
               <span
                 className={cn(
                   "relative grid size-8 place-items-center rounded-full border-2 text-xs font-bold transition-colors",
-                  s.done && !s.current && "border-brand bg-brand text-white",
+                  s.done && !s.current && "border-brand bg-brand text-on-brand",
                   s.current && (isEnd ? `border-transparent text-white ${{ ok: "bg-ok", warn: "bg-warn", info: "bg-info", danger: "bg-danger" }[endTone as "ok"] ?? "bg-brand"}` : "border-brand bg-surface text-brand-ink"),
                   !s.done && !s.current && "border-line-strong bg-surface text-fg-subtle",
                 )}
@@ -229,7 +230,7 @@ export function ScoreGauge({ value, size = 140, label = t("ai.score") }: { value
         />
       </svg>
       <div className="absolute grid place-items-center text-center">
-        <span className="font-display text-4xl font-extrabold tabular">{value}</span>
+        <span className="font-display text-4xl font-bold tabular">{value}</span>
         <span className="text-xs text-fg-subtle">/ 100</span>
       </div>
     </div>
@@ -353,7 +354,7 @@ export function Captcha({ onToken, error }: { onToken: (t: string) => void; erro
         }}
         className={cn("flex h-16 w-full max-w-sm items-center gap-3 rounded-[var(--radius-md)] border bg-surface px-4 text-left text-sm", error ? "border-danger" : "border-line")}
       >
-        <span className={cn("grid size-7 place-items-center rounded-md border-2 transition-colors", checked ? "border-ok bg-ok text-white" : "border-line-strong")}>
+        <span className={cn("grid size-7 place-items-center rounded-lg border-2 transition-colors", checked ? "border-ok bg-ok text-white" : "border-line-strong")}>
           {busy ? <span className="size-4 animate-spin rounded-full border-2 border-brand border-t-transparent" /> : checked ? <Check className="size-4" strokeWidth={3} /> : null}
         </span>
         <span className="flex-1">{checked ? "Verificado" : "Não sou um robot"}</span>

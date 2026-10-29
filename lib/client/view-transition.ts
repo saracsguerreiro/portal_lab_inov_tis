@@ -29,7 +29,7 @@ export function navigateWithTransition(push: (href: string) => void, href: strin
 /** Mudança de tema animada: círculo a crescer a partir do botão. */
 export function toggleThemeAnimated(next: "light" | "dark", origin?: { x: number; y: number }) {
   const apply = () => {
-    document.documentElement.dataset.theme = next;
+    document.documentElement.dataset.mode = next;
     try {
       localStorage.setItem("eco-theme", next);
     } catch {

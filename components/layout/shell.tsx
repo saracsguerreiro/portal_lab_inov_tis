@@ -61,7 +61,7 @@ function DemoBar() {
   const { user, ready } = useSession();
   const current = user?.id ?? null;
   return (
-    <div className="relative z-50 bg-fg text-bg">
+    <div className="relative z-50 bg-[var(--ds-color-neutral-900)] text-[var(--ds-color-neutral-50)]">
       <div className="container-x flex min-h-10 flex-wrap items-center gap-x-4 gap-y-1 py-1.5 text-xs">
         <span className="flex items-center gap-1.5 font-medium">
           <Eye className="size-3.5" aria-hidden /> {t("app.demoBanner")} · {t("app.viewAs")}:
@@ -73,13 +73,13 @@ function DemoBar() {
               role="radio"
               aria-checked={ready && current === p.id}
               onClick={() => session.viewAs(p.id)}
-              className={cn("rounded-full px-2.5 py-1 transition-colors", ready && current === p.id ? "bg-bg text-fg" : "text-bg/75 hover:bg-bg/15 hover:text-bg")}
+              className={cn("rounded-full px-2.5 py-1 transition-colors", ready && current === p.id ? "bg-[var(--ds-color-neutral-50)] font-bold text-[var(--ds-color-neutral-900)]" : "text-[var(--ds-color-neutral-300)] hover:bg-white/10 hover:text-white")}
             >
               {L.role(p.role)}
             </button>
           ))}
         </div>
-        <button onClick={() => session.resetDemo()} className="ml-auto flex items-center gap-1 text-bg/70 hover:text-bg" title="Repor os dados de demonstração">
+        <button onClick={() => session.resetDemo()} className="ml-auto flex items-center gap-1 text-[var(--ds-color-neutral-300)] hover:text-white" title="Repor os dados de demonstração">
           <RotateCcw className="size-3.5" aria-hidden /> Repor dados
         </button>
       </div>
@@ -117,7 +117,7 @@ function Footer() {
 function FooterCol({ title, items }: { title: string; items: { href: string; key: string }[] }) {
   return (
     <nav aria-label={title}>
-      <p className="mb-3 font-mono text-xs uppercase tracking-widest text-fg-subtle">{title}</p>
+      <p className="mb-3 text-xs font-bold uppercase tracking-[var(--ds-letter-spacing-wider)] text-fg-subtle">{title}</p>
       <ul className="grid gap-2">
         {items.map((i) => (
           <li key={i.href}>
@@ -157,20 +157,20 @@ function CommandPalette({ open, onOpenChange }: { open: boolean; onOpenChange: (
       </div>
       <Command.List className="max-h-[60vh] overflow-y-auto p-2">
         <Command.Empty className="p-6 text-center text-sm text-fg-muted">{t("states.noResults")}</Command.Empty>
-        <Command.Group heading="Páginas" className="[&_[cmdk-group-heading]]:px-3 [&_[cmdk-group-heading]]:py-2 [&_[cmdk-group-heading]]:font-mono [&_[cmdk-group-heading]]:text-[11px] [&_[cmdk-group-heading]]:uppercase [&_[cmdk-group-heading]]:tracking-widest [&_[cmdk-group-heading]]:text-fg-subtle">
+        <Command.Group heading="Páginas" className="[&_[cmdk-group-heading]]:px-3 [&_[cmdk-group-heading]]:py-2 [&_[cmdk-group-heading]]:font-mono [&_[cmdk-group-heading]]:text-[11px] [&_[cmdk-group-heading]]:uppercase [&_[cmdk-group-heading]]:tracking-[var(--ds-letter-spacing-wider)] [&_[cmdk-group-heading]]:text-fg-subtle">
           {pages.map((p) => (
             <CmdItem key={p.href} onSelect={() => go(p.href)} icon={<ArrowRight />}>{t(`nav.${p.key}`)}</CmdItem>
           ))}
         </Command.Group>
         {projects.length > 0 && (
-          <Command.Group heading="Projectos e ventures" className="[&_[cmdk-group-heading]]:px-3 [&_[cmdk-group-heading]]:py-2 [&_[cmdk-group-heading]]:font-mono [&_[cmdk-group-heading]]:text-[11px] [&_[cmdk-group-heading]]:uppercase [&_[cmdk-group-heading]]:tracking-widest [&_[cmdk-group-heading]]:text-fg-subtle">
+          <Command.Group heading="Projectos e ventures" className="[&_[cmdk-group-heading]]:px-3 [&_[cmdk-group-heading]]:py-2 [&_[cmdk-group-heading]]:font-mono [&_[cmdk-group-heading]]:text-[11px] [&_[cmdk-group-heading]]:uppercase [&_[cmdk-group-heading]]:tracking-[var(--ds-letter-spacing-wider)] [&_[cmdk-group-heading]]:text-fg-subtle">
             {projects.map((p) => (
               <CmdItem key={p.id} onSelect={() => go(`/projectos/${p.slug}`)} icon={p.area === "LAB" ? <FlaskConical className="text-lab-ink" /> : <Rocket className="text-inc-ink" />}>{p.name}</CmdItem>
             ))}
           </Command.Group>
         )}
         {triage.length > 0 && (
-          <Command.Group heading="Ideias na triagem" className="[&_[cmdk-group-heading]]:px-3 [&_[cmdk-group-heading]]:py-2 [&_[cmdk-group-heading]]:font-mono [&_[cmdk-group-heading]]:text-[11px] [&_[cmdk-group-heading]]:uppercase [&_[cmdk-group-heading]]:tracking-widest [&_[cmdk-group-heading]]:text-fg-subtle">
+          <Command.Group heading="Ideias na triagem" className="[&_[cmdk-group-heading]]:px-3 [&_[cmdk-group-heading]]:py-2 [&_[cmdk-group-heading]]:font-mono [&_[cmdk-group-heading]]:text-[11px] [&_[cmdk-group-heading]]:uppercase [&_[cmdk-group-heading]]:tracking-[var(--ds-letter-spacing-wider)] [&_[cmdk-group-heading]]:text-fg-subtle">
             {triage.map((i) => (
               <CmdItem key={i.id} onSelect={() => go(`/gestao/triagem?ideia=${i.id}`)} icon={<Lightbulb className="text-ai-ink" />}>
                 <span className="font-mono text-xs text-fg-subtle">{i.number}</span> {i.title}

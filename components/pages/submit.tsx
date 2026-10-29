@@ -394,7 +394,7 @@ export function StatusView() {
         <Card className="p-6 md:p-8">
           <form className="grid gap-4" onSubmit={(e) => { e.preventDefault(); load(); }}>
             <Field id="s-code" label="Código de acompanhamento" hint="Formato ECO-XXXX-XXXX." required error={state.error}>
-              <Input value={code} onChange={(e) => setCode(e.target.value.toUpperCase())} placeholder="ECO-7F3K-92QD" className="font-mono text-lg tracking-widest" autoComplete="off" spellCheck={false} />
+              <Input value={code} onChange={(e) => setCode(e.target.value.toUpperCase())} placeholder="ECO-7F3K-92QD" className="font-mono text-lg tracking-[var(--ds-letter-spacing-wider)]" autoComplete="off" spellCheck={false} />
             </Field>
             <Captcha onToken={setCaptcha} />
             <Button type="submit" loading={state.loading} disabled={!captcha || code.length < 8} className="w-fit"><FileSearch /> Consultar</Button>
@@ -433,7 +433,7 @@ export function IdeaStatusPanel({ d }: { d: { idea: { number: string; title: str
       {i.status === "DECISAO" && i.decision && (
         <motion.div initial={{ opacity: 0, scale: 0.98 }} animate={{ opacity: 1, scale: 1 }}>
           <Card className={cn("grid gap-2 border-2 p-6", i.decision === "SELECCIONADA" ? "border-ok" : i.decision === "NAO_SELECCIONADA" ? "border-danger/50" : "border-warn/50")}>
-            <p className="font-mono text-xs uppercase tracking-widest text-fg-subtle">Resultado</p>
+            <p className="text-xs font-bold uppercase tracking-[var(--ds-letter-spacing-wider)] text-fg-subtle">Resultado</p>
             <p className="font-display text-2xl font-bold">{L.decision(i.decision as never)}</p>
             {i.decisionReason && <p><span className="font-medium">Motivo:</span> {i.decisionReason}</p>}
             {i.nextStep && <p><span className="font-medium">Próximo passo:</span> {i.nextStep}</p>}

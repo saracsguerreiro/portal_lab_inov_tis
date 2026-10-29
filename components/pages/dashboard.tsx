@@ -125,7 +125,7 @@ function Block({ title, reading, children, className, table }: { title: string; 
     <Card className={cn("grid content-start gap-4 p-5 md:p-6", className)}>
       <div className="flex items-start justify-between gap-3">
         <div className="grid gap-1">
-          <h2 className="font-mono text-xs uppercase tracking-widest text-fg-subtle">{title}</h2>
+          <h2 className="text-xs font-bold uppercase tracking-[var(--ds-letter-spacing-wider)] text-fg-subtle">{title}</h2>
           <p className="text-balance font-display text-base font-bold leading-snug md:text-lg">{reading}</p>
         </div>
         {table && <Button size="sm" variant="ghost" onClick={() => setShowTable((x) => !x)} aria-pressed={showTable}><Table2 /> {showTable ? "Gráfico" : "Tabela"}</Button>}
@@ -175,7 +175,7 @@ function Kpis({ d, reading }: { d: Dash; reading: string }) {
   ];
   return (
     <section className="grid gap-3 lg:col-span-6" aria-labelledby="kpi-h">
-      <div className="grid gap-1"><h2 id="kpi-h" className="font-mono text-xs uppercase tracking-widest text-fg-subtle">1 · Números-chave</h2><p className="font-display text-lg font-bold">{reading}</p></div>
+      <div className="grid gap-1"><h2 id="kpi-h" className="text-xs font-bold uppercase tracking-[var(--ds-letter-spacing-wider)] text-fg-subtle">1 · Números-chave</h2><p className="font-display text-lg font-bold">{reading}</p></div>
       <div className="grid grid-cols-2 gap-3 md:grid-cols-3 xl:grid-cols-6">
         {tiles.map((k) => (
           <Card key={k.label} className="grid gap-1 p-5">
@@ -322,7 +322,7 @@ function DecisionsAlerts({ d }: { d: Dash }) {
         <ul className="grid max-h-56 gap-1 overflow-y-auto text-sm">
           {pending.map((p) => {
             const days = Math.round((new Date(p.dueDate).getTime() - Date.now()) / 86400000);
-            return <li key={p.key} className="flex items-center gap-2 rounded-md px-2 py-1.5 hover:bg-surface-2"><span className="w-10 font-mono text-xs">{p.key}</span><span className="flex-1 truncate">{p.title}</span><Tag tone={days < 0 ? "danger" : days < 14 ? "warn" : "neutral"}>{fmtDate(p.dueDate, { day: "numeric", month: "short" })}</Tag></li>;
+            return <li key={p.key} className="flex items-center gap-2 rounded-lg px-2 py-1.5 hover:bg-surface-2"><span className="w-10 font-mono text-xs">{p.key}</span><span className="flex-1 truncate">{p.title}</span><Tag tone={days < 0 ? "danger" : days < 14 ? "warn" : "neutral"}>{fmtDate(p.dueDate, { day: "numeric", month: "short" })}</Tag></li>;
           })}
         </ul>
       </div>
@@ -332,7 +332,7 @@ function DecisionsAlerts({ d }: { d: Dash }) {
           <ul className="grid max-h-56 gap-1 overflow-y-auto">
             {d.alerts.map((a, i) => { const I = icon[a.kind]; return (
               <motion.li key={i} initial={{ opacity: 0, x: -6 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: i * 0.03 }}>
-                <AppLink href={a.href} className="flex items-start gap-2 rounded-md px-2 py-1.5 text-sm hover:bg-surface-2"><I className={cn("mt-0.5 size-4 shrink-0", a.kind === "PRAZO" ? "text-danger" : "text-warn")} aria-label={a.kind === "PRAZO" ? "Prazo" : a.kind === "PARADO" ? "Parado" : "Continuidade"} />{a.text}</AppLink>
+                <AppLink href={a.href} className="flex items-start gap-2 rounded-lg px-2 py-1.5 text-sm hover:bg-surface-2"><I className={cn("mt-0.5 size-4 shrink-0", a.kind === "PRAZO" ? "text-danger" : "text-warn")} aria-label={a.kind === "PRAZO" ? "Prazo" : a.kind === "PARADO" ? "Parado" : "Continuidade"} />{a.text}</AppLink>
               </motion.li>
             ); })}
           </ul>
